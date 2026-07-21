@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samuel Armando Napitu | Portofolio Developer & Data Scientist</title>
+  <meta name="description" content="Portofolio kustom Samuel Armando Napitu - Mahasiswa Sistem Informasi yang berfokus pada backend development dan data science.">
+  
+  <!-- Embedded Stylesheet -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+    :root {
+      /* Handcrafted Editorial Color Scheme */
+      --bg-primary: #FAF9F6;       /* Warm Milk / Off-White */
+      --bg-secondary: #FFFFFF;     /* Pure White for clean containers */
+      --bg-dark-primary: #0a0f1d;  /* Dark Slate Navy for Header/Footer Frame */
+      --bg-dark-secondary: #131b2e;
+      
+      /* Text Colors */
+      --text-primary: #1A1A1A;     /* Deep Charcoal */
+      --text-secondary: #5A5A5A;   /* Muted Dark Gray */
+      --text-dark-primary: #FAF9F6;/* Light text for dark components */
+      --text-dark-secondary: #94A3B8;
+      
+      /* Accents */
+      --accent-rust: #D95D39;      /* Terracotta/Rust Orange - Matches Samuel's Shirt */
+      --accent-rust-glow: rgba(217, 93, 57, 0.12);
+      --border-color: rgba(26, 26, 26, 0.08); /* Minimal dark border */
+      
+      /* Font Family */
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      
+      /* Transitions */
+      --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-card: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    }
+
+    /* Base resets */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    body {
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Selection highlight */
+    ::selection {
+      background-color: var(--accent-rust);
+      color: #ffffff;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-rust);
+    }
+
+    /* Layout Containers */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header - Dark Slate Navy Frame */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: rgba(10, 15, 29, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition-smooth);
+    }
+
+    header.scrolled {
+      padding: 0.6rem 0;
+      background-color: rgba(10, 15, 29, 0.96);
+      box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 5rem;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: -1px;
+      text-decoration: none;
+      color: var(--text-dark-primary);
+      transition: var(--transition-smooth);
+    }
+
+    .logo span {
+      color: var(--accent-rust);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 3rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark-secondary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition-smooth);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-rust);
+      transition: var(--transition-smooth);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--text-dark-primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Sections Base */
+    section {
+      padding: 9rem 0 5rem 0;
+    }
+
+    .section-tagline {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--accent-rust);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 3.5rem;
+      color: var(--text-primary);
+      display: inline-block;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      background: rgba(217, 93, 57, 0.05);
+      border: 1px solid rgba(217, 93, 57, 0.15);
+      color: var(--accent-rust);
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -2.5px;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .hero-title span {
+      color: var(--accent-rust);
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    .hero-btn-group {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 2rem;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-primary {
+      background-color: var(--accent-rust);
+      color: #ffffff;
+      box-shadow: 0 4px 15px var(--accent-rust-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(217, 93, 57, 0.3);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--text-primary);
+      color: var(--text-primary);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(26, 26, 26, 0.04);
+      transform: translateY(-1px);
+    }
+
+    /* Avatar layout - Samuel's Photo */
+    .hero-avatar-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-avatar {
+      position: relative;
+      width: 330px;
+      height: 440px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition-smooth);
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-avatar:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .hero-avatar:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Project Items Layout - Option 2 Alternating Grid */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr; /* 65% image, 35% text */
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    /* Stagger every second project to be asymmetrical and non-AI */
+    .project-item:nth-child(even) {
+      grid-template-columns: 0.7fr 1.3fr; /* 35% text, 65% image */
+    }
+
+    .project-item:nth-child(even) .project-info {
+      order: -1;
+    }
+
+    .project-visual {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      background-color: var(--bg-secondary);
+      transition: var(--transition-smooth);
+      width: 100%;
+    }
+
+    .project-visual a {
+      display: block;
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+
+    .project-visual img {
+      width: 100%;
+      display: block;
+      transition: var(--transition-smooth);
+    }
+
+    .project-visual a:hover img {
+      transform: scale(1.03);
+    }
+
+    .project-item:hover .project-visual {
+      border-color: var(--accent-rust);
+      box-shadow: var(--accent-rust-glow);
+      transform: translateY(-3px);
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-tag {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .project-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.75px;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-metric {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: var(--text-primary);
+      background: rgba(217, 93, 57, 0.05);
+      border-bottom: 2px solid var(--accent-rust);
+      padding: 0.1rem 0.3rem;
+    }
+
+    .project-link-btn {
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--text-primary);
+      padding-bottom: 2px;
+      transition: var(--transition-smooth);
+      align-self: flex-start;
+    }
+
+    .project-link-btn:hover {
+      color: var(--accent-rust);
+      border-color: var(--accent-rust);
+    }
+
+    /* Tech Stack & Credentials layout */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 5rem;
+    }
+
+    .tech-group {
+      margin-bottom: 2.75rem;
+    }
+
+    .tech-group-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.25px;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .tech-group-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 14px;
+      background-color: var(--accent-rust);
+      border-radius: 2px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tech-item {
+      background-color: rgba(26, 26, 26, 0.04);
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      padding: 0.4rem 1.1rem;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      transition: var(--transition-smooth);
+    }
+
+    .tech-item:hover {
+      background-color: var(--accent-rust);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Credentials Timeline style */
+    .credential-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Connecting timeline line */
+    .credential-item::after {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      left: 3px;
+      width: 2px;
+      height: calc(100% + 1.8rem);
+      background-color: var(--border-color);
+      z-index: 1;
+    }
+
+    .credential-item:last-child::after {
+      display: none;
+    }
+
+    .credential-item::before {
+      content: '';
+      position: absolute;
+      top: 0.4rem;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-rust);
+      z-index: 2;
+    }
+
+    .credential-meta {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .credential-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .credential-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Contact Footer Section - Keep Dark Theme for Frame */
+    .contact-section {
+      text-align: center;
+      padding: 4rem 0 3rem 0;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-dark-primary);
+    }
+
+    .contact-section .contact-title {
+      color: var(--text-dark-primary);
+    }
+
+    .contact-section .contact-text {
+      color: var(--text-dark-secondary);
+    }
+
+    .contact-title {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-title span {
+      color: var(--accent-rust);
+    }
+
+    .contact-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 550px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--text-dark-secondary);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: var(--transition-smooth);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      background-color: var(--bg-dark-secondary);
+    }
+
+    .contact-link:hover {
+      color: var(--text-dark-primary);
+      border-color: var(--text-dark-secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.8);
+    }
+
+    .contact-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* Footer bottom - Keep Dark Theme for Frame */
+    footer {
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dark-secondary);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background-color: var(--bg-dark-primary);
+    }
+
+    /* Scroll Animation Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Adaptation */
+    @media (max-width: 968px) {
+      html {
+        font-size: 15px;
+      }
+      
+      .hero-grid, .project-item, .credentials-grid {
+        grid-template-columns: 1fr !important;
+        gap: 4rem;
+      }
+      
+      .hero-avatar-wrapper {
+        order: -1;
+        margin-bottom: 2.5rem;
+      }
+      
+      .hero-avatar {
+        width: 290px;
+        height: 385px;
+      }
+      
+      .project-info {
+        order: 1 !important;
+      }
+      
+      .hero-title {
+        font-size: 3.25rem;
+      }
+      
+      nav ul {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      nav {
+        display: none; /* Mobile bypass for simplicity */
+      }
+      
+      .hero-btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .hero-title {
+        font-size: 2.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">Samuel<span>Armando</span></a>
+      <nav>
+        <ul>
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#projects">Proyek</a></li>
+          <li><a href="#skills">Keahlian </a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title"><br><span>Samuel Armando Napitu</span></h1>
+        <p class="hero-desc">
+          Berpengalaman mengembangkan aplikasi
+          web and backend menggunakan Laravel, JavaScript, Python, dan SQL, serta membangun aplikasi berbasis serverless, Redis,
+          dan AI. Memiliki kompetensi data science melalui sertifikasi BNSP dan IBM Data Science Professional Certificate.
+        </p>
+        <p class="hero-desc" style="margin-top: -1.5rem; font-style: italic; font-size: 0.95rem;">
+          Mahasiswa S1 Sistem Informasi Telkom University dengan IPK 3,69/4,00. 
+        </p>
+        <div class="hero-btn-group">
+          <a href="#projects" class="btn btn-primary">Lihat Proyek Saya</a>
+          <a href="./CV_Samuel_Armando_Napitu_ID.pdf" class="btn btn-secondary" download>Unduh CV (PDF)</a>
+        </div>
+      </div>
+      <div class="hero-avatar-wrapper">
+        <div class="hero-avatar">
+          <img src="./samuel.jpeg" alt="Samuel Armando Napitu">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <span class="section-tagline">Studi Kasus</span>
+      <br>
+      <h2 class="section-title">Proyek yang Pernah Saya Bangun</h2>
+      
+      <div class="projects-list">
+        <!-- Project 1: Daun Merah -->
+        <div class="project-item reveal">
+          <div class="project-visual">
+            <a href="./daun_merah_dashboard.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+              <img src="./daun_merah_dashboard.png" alt="Daun Merah Dashboard PWA">
+            </a>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Vanilla JS</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Redis</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <h3 class="project-title">Daun Merah — Forex Intelligence PWA</h3>
+            <p class="project-desc">
+              Aplikasi Progressive Web App (PWA) serverless untuk melakukan analisis forex secara real-time. Dilengkapi dengan caching Redis untuk performa cepat dan integrasi kecerdasan buatan (AI) multi-provider dengan sistem failover otomatis.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/sam01149/Daun_Merah_Terminal" class="project-link-btn" target="_blank">Repositori GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Customer Segmentation -->
+        <div class="project-item reveal">
+          <div class="project-visual">
+            <a href="./smartphone_customer_segmentation.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+              <img src="./smartphone_customer_segmentation.png" alt="Smartphone Customer Segmentation Chart">
+            </a>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Scikit-learn</span>
+              <span class="project-tag">Pandas</span>
+              <span class="project-tag">Streamlit</span>
+            </div>
+            <h3 class="project-title">Segmentasi Pelanggan Berbasis Machine Learning</h3>
+            <p class="project-desc">
+              Analisis pengelompokan pelanggan smartphone berbasis algoritma K-Means Clustering dengan metodologi CRISP-DM. Proyek ini dilengkapi dengan aplikasi web Streamlit untuk memprediksi segmen konsumen baru secara otomatis.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/sam01149/studikasus_webinar" class="project-link-btn" target="_blank">Lihat Kode Python</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: QC PT Estima -->
+        <div class="project-item reveal">
+          <div class="project-visual">
+            <a href="./dashboard_quality_control.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+              <img src="./dashboard_quality_control.png" alt="Dashboard Quality Control PT Estima">
+            </a>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Sistem Analisis</span>
+              <span class="project-tag">UI Wireframe</span>
+              <span class="project-tag">ERD & Use Case</span>
+            </div>
+            <h3 class="project-title">Perancangan Sistem Quality Control — PT Estima Reka Sakti</h3>
+            <p class="project-desc">
+              Hasil analisis dan perancangan sistem monitoring kualitas konstruksi lapangan berbasis web di PT Estima Reka Sakti, mencakup pemetaan alur proses bisnis, use case diagram, ERD relasional, dan rancangan UI wireframe.
+            </p>
+            <div class="project-links">
+              <a href="./Surat Keterangan Penelitian PT Estima Reka Sakti.pdf" class="project-link-btn" download>Unduh Surat Keterangan Penelitian (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Abadi Airlines -->
+        <div class="project-item reveal">
+          <div class="project-visual">
+            <a href="./abadi_arilines_dashboard.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+              <img src="./abadi_arilines_dashboard.png" alt="Abadi Airlines Laravel Dashboard">
+            </a>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">Laravel</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">Blade Engine</span>
+            </div>
+            <h3 class="project-title">Aplikasi Manajemen Maskapai Penerbangan Nasional</h3>
+            <p class="project-desc">
+              Aplikasi internal maskapai penerbangan berbasis Laravel MVC dan database MySQL untuk mengelola jadwal penerbangan, data manifest, serta modul CRUD transaksi tiket penumpang secara aman.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/sam01149/Aplikasi_Maskapai_Nasional" class="project-link-btn" target="_blank">Repositori GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Arsenal & Credentials Section -->
+  <section id="skills" class="skills-section">
+    <div class="container credentials-grid">
+      <div class="reveal">
+        <span class="section-tagline">Keahlian</span>
+        <h2 class="section-title">Perangkat Alat & Bahasa</h2>
+        
+        <div class="tech-group">
+          <h3 class="tech-group-title">Bahasa Pemrograman</h3>
+          <div class="tech-list">
+            <span class="tech-item">PHP</span>
+            <span class="tech-item">JavaScript (Vanilla)</span>
+            <span class="tech-item">SQL</span>
+            <span class="tech-item">Python</span>
+            <span class="tech-item">HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3 class="tech-group-title">Framework & Library</h3>
+          <div class="tech-list">
+            <span class="tech-item">Laravel</span>
+            <span class="tech-item">Node.js (Serverless)</span>
+            <span class="tech-item">Scikit-learn</span>
+            <span class="tech-item">Pandas</span>
+            <span class="tech-item">NumPy</span>
+            <span class="tech-item">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3 class="tech-group-title">Database & DevOps</h3>
+          <div class="tech-list">
+            <span class="tech-item">MySQL</span>
+            <span class="tech-item">Redis (Caching/Locks)</span>
+            <span class="tech-item">RESTful API Design</span>
+            <span class="tech-item">Vercel Serverless</span>
+            <span class="tech-item">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="section-tagline">Riwayat</span>
+        <h2 class="section-title">Pendidikan & Sertifikasi</h2>
+        
+        <div class="credential-item edu">
+          <div class="credential-meta">2023 — Sekarang</div>
+          <h3 class="credential-title">S1 Sistem Informasi</h3>
+          <div class="credential-subtitle">Telkom University Jakarta (IPK: 3.69 / 4.00)</div>
+        </div>
+
+        <div class="credential-item">
+          <div class="credential-meta">Maret 2026</div>
+          <h3 class="credential-title">Data Science Professional Certificate</h3>
+          <div class="credential-subtitle">IBM via Coursera</div>
+        </div>
+
+        <div class="credential-item">
+          <div class="credential-meta">April 2026</div>
+          <h3 class="credential-title">Sertifikasi Data Scientist</h3>
+          <div class="credential-subtitle">Lembaga Sertifikasi Profesi (LSP) Data / BNSP</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer Section -->
+  <section id="contact" class="contact-section">
+    <div class="container reveal">
+      <h2 class="contact-title">Kontak <span>Saya</span></h2>
+      <p class="contact-text">Anda bisa menghubungi saya melalui:</p>
+      
+      <div class="contact-links">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samuelarmando93@gmail.com" class="contact-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          samuelarmando93@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/samuelarmando" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          linkedin.com/in/samuelarmando
+        </a>
+        <a href="https://github.com/sam01149" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          github.com/sam01149
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer bottom -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Samuel Armando Napitu.</p>
+    </div>
+  </footer>
+
+  <!-- Embedded JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('header');
+      const revealElements = document.querySelectorAll('.reveal');
+
+      // 1. Header scroll effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // 2. Intersection Observer for scroll animations (reveal opacity)
+      const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Once animated, we don't need to observe it anymore
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const revealOptions = {
+        threshold: 0.15, // trigger when 15% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // adjust trigger boundary slightly above bottom viewport
+      };
+
+      const observer = new IntersectionObserver(revealCallback, revealOptions);
+
+      revealElements.forEach(el => {
+        observer.observe(el);
+      });
+
+      // 3. Smooth scrolling for nav anchors
+      const navLinks = document.querySelectorAll('nav a, .logo, .btn-primary, .btn-secondary');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href');
+          
+          // Only smooth scroll if it's an internal link
+          if (targetId && targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Offset for fixed navbar
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
