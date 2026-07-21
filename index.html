@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samuel Armando Napitu | Portofolio Developer & Data Scientist</title>
-  <meta name="description" content="Portofolio kustom Samuel Armando Napitu - Mahasiswa Sistem Informasi yang berfokus pada backend development dan data science.">
+  <title>Samuel Armando Napitu | Developer & Data Scientist Portfolio</title>
+  <meta name="description" content="Samuel Armando Napitu's custom portfolio - Information Systems student focusing on backend development and data science.">
   
   <!-- Embedded Stylesheet -->
   <style>
@@ -710,6 +710,132 @@
         font-size: 2.75rem;
       }
     }
+
+    /* Language Dropdown Selector Styles */
+    .nav-right-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-dropbtn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-dark-primary);
+      padding: 0.5rem 0.85rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: var(--transition-smooth);
+    }
+
+    .lang-dropbtn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .flag-wrapper {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .flag-wrapper svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .chevron-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .lang-dropdown.active .chevron-icon {
+      transform: rotate(180deg);
+    }
+
+    .lang-dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.5rem);
+      background-color: var(--bg-dark-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      min-width: 150px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      overflow: hidden;
+      animation: fadeInDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .lang-dropdown-content.show {
+      display: block;
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--text-dark-secondary);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: var(--transition-smooth);
+    }
+
+    .lang-option:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--text-dark-primary);
+    }
+
+    .lang-option.active {
+      color: var(--accent-rust);
+      background-color: rgba(217, 93, 57, 0.05);
+    }
+
+    @media (max-width: 968px) {
+      .nav-right-wrapper {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .nav-right-wrapper {
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -718,14 +844,71 @@
   <header id="header">
     <div class="container nav-container">
       <a href="#" class="logo">Samuel<span>Armando</span></a>
-      <nav>
-        <ul>
-          <li><a href="#hero">Beranda</a></li>
-          <li><a href="#projects">Proyek</a></li>
-          <li><a href="#skills">Keahlian </a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
-      </nav>
+      <div class="nav-right-wrapper">
+        <nav>
+          <ul>
+            <li><a href="#hero" data-translate="nav-home">Home</a></li>
+            <li><a href="#projects" data-translate="nav-projects">Projects</a></li>
+            <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
+            <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- Language Dropdown -->
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-dropbtn" id="langBtn" aria-label="Select Language">
+            <div class="flag-wrapper" id="currentFlag">
+              <svg viewBox="0 0 20 20" width="20" height="20">
+                <rect width="20" height="20" fill="#b22234"/>
+                <path d="M0 1.54h20M0 4.62h20M0 7.7h20M0 10.78h20M0 13.86h20M0 16.94h20" stroke="#fff" stroke-width="1.54"/>
+                <rect width="10.5" height="10.78" fill="#3c3b6e"/>
+                <g fill="#fff">
+                  <circle cx="2.1" cy="2.15" r="0.6"/>
+                  <circle cx="5.25" cy="2.15" r="0.6"/>
+                  <circle cx="8.4" cy="2.15" r="0.6"/>
+                  <circle cx="3.67" cy="5.39" r="0.6"/>
+                  <circle cx="6.82" cy="5.39" r="0.6"/>
+                  <circle cx="2.1" cy="8.62" r="0.6"/>
+                  <circle cx="5.25" cy="8.62" r="0.6"/>
+                  <circle cx="8.4" cy="8.62" r="0.6"/>
+                </g>
+              </svg>
+            </div>
+            <span id="currentLangLabel">EN</span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" width="16" height="16"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/></svg>
+          </button>
+          <div class="lang-dropdown-content" id="langDropdownContent">
+            <a href="#" data-lang="en" class="lang-option active">
+              <div class="flag-wrapper">
+                <svg viewBox="0 0 20 20" width="20" height="20">
+                  <rect width="20" height="20" fill="#b22234"/>
+                  <path d="M0 1.54h20M0 4.62h20M0 7.7h20M0 10.78h20M0 13.86h20M0 16.94h20" stroke="#fff" stroke-width="1.54"/>
+                  <rect width="10.5" height="10.78" fill="#3c3b6e"/>
+                  <g fill="#fff">
+                    <circle cx="2.1" cy="2.15" r="0.6"/>
+                    <circle cx="5.25" cy="2.15" r="0.6"/>
+                    <circle cx="8.4" cy="2.15" r="0.6"/>
+                    <circle cx="3.67" cy="5.39" r="0.6"/>
+                    <circle cx="6.82" cy="5.39" r="0.6"/>
+                    <circle cx="2.1" cy="8.62" r="0.6"/>
+                    <circle cx="5.25" cy="8.62" r="0.6"/>
+                    <circle cx="8.4" cy="8.62" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+              <span>English (US)</span>
+            </a>
+            <a href="#" data-lang="id" class="lang-option">
+              <div class="flag-wrapper">
+                <svg viewBox="0 0 20 20" width="20" height="20">
+                  <rect width="20" height="10" fill="#ff4b55"/>
+                  <rect y="10" width="20" height="10" fill="#fff"/>
+                </svg>
+              </div>
+              <span>Indonesia</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -734,17 +917,15 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <h1 class="hero-title"><br><span>Samuel Armando Napitu</span></h1>
-        <p class="hero-desc">
-          Berpengalaman mengembangkan aplikasi
-          web and backend menggunakan Laravel, JavaScript, Python, dan SQL, serta membangun aplikasi berbasis serverless, Redis,
-          dan AI. Memiliki kompetensi data science melalui sertifikasi BNSP dan IBM Data Science Professional Certificate.
+        <p class="hero-desc" data-translate="hero-desc">
+          Experienced in developing web and backend applications using Laravel, JavaScript, Python, and SQL, as well as building serverless, Redis, and AI-based applications. Holds data science competencies through BNSP and IBM Data Science Professional Certificate.
         </p>
-        <p class="hero-desc" style="margin-top: -1.5rem; font-style: italic; font-size: 0.95rem;">
-          Mahasiswa S1 Sistem Informasi Telkom University dengan IPK 3,69/4,00. 
+        <p class="hero-desc" style="margin-top: -1.5rem; font-style: italic; font-size: 0.95rem;" data-translate="hero-subdesc">
+          Information Systems undergraduate student at Telkom University with a GPA of 3.69/4.00.
         </p>
         <div class="hero-btn-group">
-          <a href="#projects" class="btn btn-primary">Lihat Proyek Saya</a>
-          <a href="./CV_Samuel_Armando_Napitu_ID.pdf" class="btn btn-secondary" download>Unduh CV (PDF)</a>
+          <a href="#projects" class="btn btn-primary" data-translate="hero-btn-projects">View My Projects</a>
+          <a href="./CV_Samuel_Armando_Napitu_EN.pdf" class="btn btn-secondary" download data-translate="hero-btn-cv">Download CV (PDF)</a>
         </div>
       </div>
       <div class="hero-avatar-wrapper">
@@ -758,15 +939,15 @@
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
-      <span class="section-tagline">Studi Kasus</span>
+      <span class="section-tagline" data-translate="projects-tagline">Projects Experience</span>
       <br>
-      <h2 class="section-title">Proyek yang Pernah Saya Bangun</h2>
+      <h2 class="section-title" data-translate="projects-title">Projects I Have Built</h2>
       
       <div class="projects-list">
         <!-- Project 1: Daun Merah -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./daun_merah_dashboard.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+            <a href="./daun_merah_dashboard.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
               <img src="./daun_merah_dashboard.png" alt="Daun Merah Dashboard PWA">
             </a>
           </div>
@@ -778,11 +959,11 @@
               <span class="project-tag">Vercel</span>
             </div>
             <h3 class="project-title">Daun Merah — Forex Intelligence PWA</h3>
-            <p class="project-desc">
-              Aplikasi Progressive Web App (PWA) serverless untuk melakukan analisis forex secara real-time. Dilengkapi dengan caching Redis untuk performa cepat dan integrasi kecerdasan buatan (AI) multi-provider dengan sistem failover otomatis.
+            <p class="project-desc" data-translate="proj1-desc">
+              A serverless Progressive Web App (PWA) for real-time forex analysis. Features Redis caching for rapid performance and multi-provider AI integration with automatic failover.
             </p>
             <div class="project-links">
-              <a href="https://github.com/sam01149/Daun_Merah_Terminal" class="project-link-btn" target="_blank">Repositori GitHub</a>
+              <a href="https://github.com/sam01149/Daun_Merah_Terminal" class="project-link-btn" target="_blank" data-translate="proj1-btn">GitHub Repository</a>
             </div>
           </div>
         </div>
@@ -790,7 +971,7 @@
         <!-- Project 2: Customer Segmentation -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./smartphone_plot_1.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+            <a href="./smartphone_plot_1.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
               <img src="./smartphone_plot_1.png" alt="Smartphone Customer Segmentation Chart">
             </a>
           </div>
@@ -801,12 +982,12 @@
               <span class="project-tag">Pandas</span>
               <span class="project-tag">Streamlit</span>
             </div>
-            <h3 class="project-title">Segmentasi Pelanggan Berbasis Machine Learning</h3>
-            <p class="project-desc">
-              Analisis pengelompokan pelanggan smartphone berbasis algoritma K-Means Clustering dengan metodologi CRISP-DM. Proyek ini dilengkapi dengan aplikasi web Streamlit untuk memprediksi segmen konsumen baru secara otomatis.
+            <h3 class="project-title" data-translate="proj2-title">Machine Learning-Based Customer Segmentation</h3>
+            <p class="project-desc" data-translate="proj2-desc">
+              Smartphone customer segmentation analysis based on the K-Means Clustering algorithm with CRISP-DM methodology. This project features a Streamlit web application to automatically predict new consumer segments.
             </p>
             <div class="project-links">
-              <a href="https://github.com/sam01149/studikasus_webinar" class="project-link-btn" target="_blank">Lihat Kode Python</a>
+              <a href="https://github.com/sam01149/studikasus_webinar" class="project-link-btn" target="_blank" data-translate="proj2-btn">View Python Code</a>
             </div>
           </div>
         </div>
@@ -814,22 +995,22 @@
         <!-- Project 3: QC PT Estima -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./dashboard_quality_control.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+            <a href="./dashboard_quality_control.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
               <img src="./dashboard_quality_control.png" alt="Dashboard Quality Control PT Estima">
             </a>
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="project-tag">Sistem Analisis</span>
+              <span class="project-tag" data-translate="proj3-tag1">System Analysis</span>
               <span class="project-tag">UI Wireframe</span>
               <span class="project-tag">ERD & Use Case</span>
             </div>
-            <h3 class="project-title">Perancangan Sistem Quality Control — PT Estima Reka Sakti</h3>
-            <p class="project-desc">
-              Hasil analisis dan perancangan sistem monitoring kualitas konstruksi lapangan berbasis web di PT Estima Reka Sakti, mencakup pemetaan alur proses bisnis, use case diagram, ERD relasional, dan rancangan UI wireframe.
+            <h3 class="project-title" data-translate="proj3-title">Quality Control System Design — PT Estima Reka Sakti</h3>
+            <p class="project-desc" data-translate="proj3-desc">
+              Analysis and design of a web-based construction quality control monitoring system at PT Estima Reka Sakti, covering business process mapping, use case diagrams, relational ERD, and UI wireframe designs.
             </p>
             <div class="project-links">
-              <a href="./Surat Keterangan Penelitian PT Estima Reka Sakti.pdf" class="project-link-btn" download>Unduh Surat Keterangan Penelitian (PDF)</a>
+              <a href="./Surat Keterangan Penelitian PT Estima Reka Sakti.pdf" class="project-link-btn" download data-translate="proj3-btn">Download Research Certificate (PDF)</a>
             </div>
           </div>
         </div>
@@ -837,7 +1018,7 @@
         <!-- Project 4: Abadi Airlines -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./abadi_arilines_dashboard.png" target="_blank" title="Klik untuk melihat resolusi penuh (Zoom)">
+            <a href="./abadi_arilines_dashboard.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
               <img src="./abadi_arilines_dashboard.png" alt="Abadi Airlines Laravel Dashboard">
             </a>
           </div>
@@ -848,12 +1029,12 @@
               <span class="project-tag">MySQL</span>
               <span class="project-tag">Blade Engine</span>
             </div>
-            <h3 class="project-title">Aplikasi Manajemen Maskapai Penerbangan Nasional</h3>
-            <p class="project-desc">
-              Aplikasi internal maskapai penerbangan berbasis Laravel MVC dan database MySQL untuk mengelola jadwal penerbangan, data manifest, serta modul CRUD transaksi tiket penumpang secara aman.
+            <h3 class="project-title" data-translate="proj4-title">National Airline Management Application</h3>
+            <p class="project-desc" data-translate="proj4-desc">
+              An internal airline management application built with Laravel MVC and MySQL database to manage flight schedules, manifest data, and secure CRUD passenger ticket transaction modules.
             </p>
             <div class="project-links">
-              <a href="https://github.com/sam01149/Aplikasi_Maskapai_Nasional" class="project-link-btn" target="_blank">Repositori GitHub</a>
+              <a href="https://github.com/sam01149/Aplikasi_Maskapai_Nasional" class="project-link-btn" target="_blank" data-translate="proj4-btn">GitHub Repository</a>
             </div>
           </div>
         </div>
@@ -865,11 +1046,11 @@
   <section id="skills" class="skills-section">
     <div class="container credentials-grid">
       <div class="reveal">
-        <span class="section-tagline">Keahlian</span>
-        <h2 class="section-title">Perangkat Alat & Bahasa</h2>
+        <span class="section-tagline" data-translate="skills-tagline">Skills</span><br>
+        <h2 class="section-title" data-translate="skills-title">Tools & Languages</h2>
         
         <div class="tech-group">
-          <h3 class="tech-group-title">Bahasa Pemrograman</h3>
+          <h3 class="tech-group-title" data-translate="skills-group1">Programming Languages</h3>
           <div class="tech-list">
             <span class="tech-item">PHP</span>
             <span class="tech-item">JavaScript (Vanilla)</span>
@@ -880,7 +1061,7 @@
         </div>
 
         <div class="tech-group">
-          <h3 class="tech-group-title">Framework & Library</h3>
+          <h3 class="tech-group-title" data-translate="skills-group2">Frameworks & Libraries</h3>
           <div class="tech-list">
             <span class="tech-item">Laravel</span>
             <span class="tech-item">Node.js (Serverless)</span>
@@ -892,7 +1073,7 @@
         </div>
 
         <div class="tech-group">
-          <h3 class="tech-group-title">Database & DevOps</h3>
+          <h3 class="tech-group-title" data-translate="skills-group3">Database & DevOps</h3>
           <div class="tech-list">
             <span class="tech-item">MySQL</span>
             <span class="tech-item">Redis (Caching/Locks)</span>
@@ -904,25 +1085,25 @@
       </div>
 
       <div class="reveal">
-        <span class="section-tagline">Riwayat</span>
-        <h2 class="section-title">Pendidikan & Sertifikasi</h2>
+        <span class="section-tagline" data-translate="history-tagline">History</span>
+        <h2 class="section-title" data-translate="history-title">Education & Certifications</h2>
         
         <div class="credential-item edu">
-          <div class="credential-meta">2023 — Sekarang</div>
-          <h3 class="credential-title">S1 Sistem Informasi</h3>
-          <div class="credential-subtitle">Telkom University Jakarta (IPK: 3.69 / 4.00)</div>
+          <div class="credential-meta" data-translate="edu-date">2023 — Present</div>
+          <h3 class="credential-title" data-translate="edu-title">Bachelor of Information Systems</h3>
+          <div class="credential-subtitle" data-translate="edu-sub">Telkom University Jakarta (GPA: 3.69 / 4.00)</div>
         </div>
 
         <div class="credential-item">
-          <div class="credential-meta">Maret 2026</div>
+          <div class="credential-meta" data-translate="cert1-date">March 2026</div>
           <h3 class="credential-title">Data Science Professional Certificate</h3>
           <div class="credential-subtitle">IBM via Coursera</div>
         </div>
 
         <div class="credential-item">
-          <div class="credential-meta">April 2026</div>
-          <h3 class="credential-title">Sertifikasi Data Scientist</h3>
-          <div class="credential-subtitle">Lembaga Sertifikasi Profesi (LSP) Data / BNSP</div>
+          <div class="credential-meta" data-translate="cert2-date">April 2026</div>
+          <h3 class="credential-title" data-translate="cert2-title">Data Scientist Certification</h3>
+          <div class="credential-subtitle" data-translate="cert2-sub">Professional Certification Body (LSP) Data / BNSP</div>
         </div>
       </div>
     </div>
@@ -931,8 +1112,8 @@
   <!-- Contact & Footer Section -->
   <section id="contact" class="contact-section">
     <div class="container reveal">
-      <h2 class="contact-title">Kontak <span>Saya</span></h2>
-      <p class="contact-text">Anda bisa menghubungi saya melalui:</p>
+      <h2 class="contact-title" data-translate="contact-title">Contact <span>Me</span></h2>
+      <p class="contact-text" data-translate="contact-text">You can reach me through:</p>
       
       <div class="contact-links">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samuelarmando93@gmail.com" class="contact-link" target="_blank">
@@ -1014,6 +1195,194 @@
           }
         });
       });
+
+      // 4. Translation & Language Selector Logic
+      const translations = {
+        en: {
+          "doc-title": "Samuel Armando Napitu | Developer & Data Scientist Portfolio",
+          "meta-desc": "Samuel Armando Napitu's custom portfolio - Information Systems student focusing on backend development and data science.",
+          "nav-home": "Home",
+          "nav-projects": "Projects",
+          "nav-skills": "Skills",
+          "nav-contact": "Contact",
+          "hero-desc": "Experienced in developing web and backend applications using Laravel, JavaScript, Python, and SQL, as well as building serverless, Redis, and AI-based applications. Holds data science competencies through BNSP and IBM Data Science Professional Certificate.",
+          "hero-subdesc": "Information Systems undergraduate student at Telkom University with a GPA of 3.69/4.00.",
+          "hero-btn-projects": "View My Projects",
+          "hero-btn-cv": "Download CV (PDF)",
+          "projects-tagline": "Projects Experience",
+          "projects-title": "Projects I Have Built",
+          "proj1-desc": "A serverless Progressive Web App (PWA) for real-time forex analysis. Features Redis caching for rapid performance and multi-provider AI integration with automatic failover.",
+          "proj1-btn": "GitHub Repository",
+          "zoom-title": "Click to view full resolution (Zoom)",
+          "proj2-title": "Machine Learning-Based Customer Segmentation",
+          "proj2-desc": "Smartphone customer segmentation analysis based on the K-Means Clustering algorithm with CRISP-DM methodology. This project features a Streamlit web application to automatically predict new consumer segments.",
+          "proj2-btn": "View Python Code",
+          "proj3-title": "Quality Control System Design — PT Estima Reka Sakti",
+          "proj3-desc": "Analysis and design of a web-based construction quality control monitoring system at PT Estima Reka Sakti, covering business process mapping, use case diagrams, relational ERD, and UI wireframe designs.",
+          "proj3-btn": "Download Research Certificate (PDF)",
+          "proj3-tag1": "System Analysis",
+          "proj4-title": "National Airline Management Application",
+          "proj4-desc": "An internal airline management application built with Laravel MVC and MySQL database to manage flight schedules, manifest data, and secure CRUD passenger ticket transaction modules.",
+          "proj4-btn": "GitHub Repository",
+          "skills-tagline": "Skills",
+          "skills-title": "Tools & Languages",
+          "skills-group1": "Programming Languages",
+          "skills-group2": "Frameworks & Libraries",
+          "skills-group3": "Database & DevOps",
+          "history-tagline": "History",
+          "history-title": "Education & Certifications",
+          "edu-date": "2023 — Present",
+          "edu-title": "Bachelor of Information Systems",
+          "edu-sub": "Telkom University Jakarta (GPA: 3.69 / 4.00)",
+          "cert1-date": "March 2026",
+          "cert2-date": "April 2026",
+          "cert2-title": "Data Scientist Certification",
+          "cert2-sub": "Professional Certification Body (LSP) Data / BNSP",
+          "contact-title": "Contact <span>Me</span>",
+          "contact-text": "You can reach me through:"
+        },
+        id: {
+          "doc-title": "Samuel Armando Napitu | Portofolio Developer & Data Scientist",
+          "meta-desc": "Portofolio kustom Samuel Armando Napitu - Mahasiswa Sistem Informasi yang berfokus pada backend development dan data science.",
+          "nav-home": "Beranda",
+          "nav-projects": "Proyek",
+          "nav-skills": "Keahlian",
+          "nav-contact": "Kontak",
+          "hero-desc": "Berpengalaman mengembangkan aplikasi web and backend menggunakan Laravel, JavaScript, Python, dan SQL, serta membangun aplikasi berbasis serverless, Redis, dan AI. Memiliki kompetensi data science melalui sertifikasi BNSP dan IBM Data Science Professional Certificate.",
+          "hero-subdesc": "Mahasiswa S1 Sistem Informasi Telkom University dengan IPK 3,69/4,00.",
+          "hero-btn-projects": "Lihat Proyek Saya",
+          "hero-btn-cv": "Unduh CV (PDF)",
+          "projects-tagline": "Pengalaman Proyek",
+          "projects-title": "Proyek yang Pernah Saya Bangun",
+          "proj1-desc": "Aplikasi Progressive Web App (PWA) serverless untuk melakukan analisis forex secara real-time. Dilengkapi dengan caching Redis untuk performa cepat dan integrasi kecerdasan buatan (AI) multi-provider dengan sistem failover otomatis.",
+          "proj1-btn": "Repositori GitHub",
+          "zoom-title": "Klik untuk melihat resolusi penuh (Zoom)",
+          "proj2-title": "Segmentasi Pelanggan Berbasis Machine Learning",
+          "proj2-desc": "Analisis pengelompokan pelanggan smartphone berbasis algoritma K-Means Clustering dengan metodologi CRISP-DM. Proyek ini dilengkapi dengan aplikasi web Streamlit untuk memprediksi segmen konsumen baru secara otomatis.",
+          "proj2-btn": "Lihat Kode Python",
+          "proj3-title": "Perancangan Sistem Quality Control — PT Estima Reka Sakti",
+          "proj3-desc": "Hasil analisis dan perancangan sistem monitoring kualitas konstruksi lapangan berbasis web di PT Estima Reka Sakti, mencakup pemetaan alur proses bisnis, use case diagram, ERD relasional, dan rancangan UI wireframe.",
+          "proj3-btn": "Unduh Surat Keterangan Penelitian (PDF)",
+          "proj3-tag1": "Sistem Analisis",
+          "proj4-title": "Aplikasi Manajemen Maskapai Penerbangan Nasional",
+          "proj4-desc": "Aplikasi internal maskapai penerbangan berbasis Laravel MVC dan database MySQL untuk mengelola jadwal penerbangan, data manifest, serta modul CRUD transaksi tiket penumpang secara aman.",
+          "proj4-btn": "Repositori GitHub",
+          "skills-tagline": "Keahlian",
+          "skills-title": "Perangkat Alat & Bahasa",
+          "skills-group1": "Bahasa Pemrograman",
+          "skills-group2": "Framework & Library",
+          "skills-group3": "Database & DevOps",
+          "history-tagline": "Riwayat",
+          "history-title": "Pendidikan & Sertifikasi",
+          "edu-date": "2023 — Sekarang",
+          "edu-title": "S1 Sistem Informasi",
+          "edu-sub": "Telkom University Jakarta (IPK: 3.69 / 4.00)",
+          "cert1-date": "Maret 2026",
+          "cert2-date": "April 2026",
+          "cert2-title": "Sertifikasi Data Scientist",
+          "cert2-sub": "Lembaga Sertifikasi Profesi (LSP) Data / BNSP",
+          "contact-title": "Kontak <span>Saya</span>",
+          "contact-text": "Anda bisa menghubungi saya melalui:"
+        }
+      };
+
+      const langDropdown = document.getElementById('langDropdown');
+      const langBtn = document.getElementById('langBtn');
+      const langDropdownContent = document.getElementById('langDropdownContent');
+      const currentFlag = document.getElementById('currentFlag');
+      const currentLangLabel = document.getElementById('currentLangLabel');
+      
+      const flags = {
+        en: `
+          <svg viewBox="0 0 20 20" width="20" height="20">
+            <rect width="20" height="20" fill="#b22234"/>
+            <path d="M0 1.54h20M0 4.62h20M0 7.7h20M0 10.78h20M0 13.86h20M0 16.94h20" stroke="#fff" stroke-width="1.54"/>
+            <rect width="10.5" height="10.78" fill="#3c3b6e"/>
+            <g fill="#fff">
+              <circle cx="2.1" cy="2.15" r="0.6"/>
+              <circle cx="5.25" cy="2.15" r="0.6"/>
+              <circle cx="8.4" cy="2.15" r="0.6"/>
+              <circle cx="3.67" cy="5.39" r="0.6"/>
+              <circle cx="6.82" cy="5.39" r="0.6"/>
+              <circle cx="2.1" cy="8.62" r="0.6"/>
+              <circle cx="5.25" cy="8.62" r="0.6"/>
+              <circle cx="8.4" cy="8.62" r="0.6"/>
+            </g>
+          </svg>
+        `,
+        id: `
+          <svg viewBox="0 0 20 20" width="20" height="20">
+            <rect width="20" height="10" fill="#ff4b55"/>
+            <rect y="10" width="20" height="10" fill="#fff"/>
+          </svg>
+        `
+      };
+
+      function setLanguage(lang) {
+        localStorage.setItem('preferred-language', lang);
+        document.documentElement.lang = lang;
+        
+        document.title = translations[lang]["doc-title"];
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute('content', translations[lang]["meta-desc"]);
+        }
+
+        document.querySelectorAll('[data-translate]').forEach(el => {
+          const key = el.getAttribute('data-translate');
+          if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+
+        document.querySelectorAll('[data-translate-title]').forEach(el => {
+          const key = el.getAttribute('data-translate-title');
+          if (translations[lang][key]) {
+            el.setAttribute('title', translations[lang][key]);
+          }
+        });
+
+        const cvBtn = document.querySelector('a[data-translate="hero-btn-cv"]');
+        if (cvBtn) {
+          cvBtn.setAttribute('href', lang === 'en' ? './CV_Samuel_Armando_Napitu_EN.pdf' : './CV_Samuel_Armando_Napitu_ID.pdf');
+        }
+
+        currentFlag.innerHTML = flags[lang];
+        currentLangLabel.textContent = lang.toUpperCase();
+
+        document.querySelectorAll('.lang-option').forEach(opt => {
+          if (opt.getAttribute('data-lang') === lang) {
+            opt.classList.add('active');
+          } else {
+            opt.classList.remove('active');
+          }
+        });
+      }
+
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+        langDropdownContent.classList.toggle('show');
+      });
+
+      document.addEventListener('click', () => {
+        langDropdown.classList.remove('active');
+        langDropdownContent.classList.remove('show');
+      });
+
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const selectedLang = opt.getAttribute('data-lang');
+          setLanguage(selectedLang);
+          langDropdown.classList.remove('active');
+          langDropdownContent.classList.remove('show');
+        });
+      });
+
+      const storedLang = localStorage.getItem('preferred-language') || 'en';
+      setLanguage(storedLang);
     });
   </script>
 </body>
