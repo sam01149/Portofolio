@@ -367,6 +367,7 @@
 
     .project-visual img {
       width: 100%;
+      height: auto;
       display: block;
       transition: var(--transition-smooth);
     }
@@ -1047,6 +1048,28 @@
       <h2 class="section-title" data-translate="projects-title">Projects I Have Built</h2>
 
       <div class="projects-list">
+        <!-- AIX: Internship project -->
+        <div class="project-item reveal">
+          <div class="project-visual">
+            <a href="./aix-naming-audit.png" target="_blank" rel="noopener" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+              <img src="./aix-naming-audit.png" alt="AIX naming convention audit: 26,713 entries, 22,684 non-compliant and 4,029 compliant" width="1800" height="850" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag" data-translate="aix-category">Internship Project</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">SharePoint</span>
+              <span class="project-tag">Data Governance</span>
+            </div>
+            <h3 class="project-title" data-translate="aix-title">AIX Metadata Catalog &amp; Data Governance Pipeline</h3>
+            <p class="project-desc" data-translate="aix-desc">Built a rule-based Python pipeline during my Telkom Indonesia internship to catalog 26,713 SharePoint file and folder entries. Classified document metadata, audited naming conventions, and exported reviewable Excel and CSV catalogs. The baseline audit identified 22,684 non-compliant entries (84.9%).</p>
+            <div class="project-links">
+              <a href="./aix-catalog-schema.png" class="project-link-btn" target="_blank" rel="noopener" data-translate="aix-btn">View Catalog Schema</a>
+            </div>
+          </div>
+        </div>
+
         <!-- Project 1: Daun Merah -->
         <div class="project-item reveal">
           <div class="project-visual">
@@ -1104,13 +1127,14 @@
           </div>
           <div class="project-info">
             <div class="project-tags">
+              <span class="project-tag" data-translate="proj3-category">Academic Research</span>
               <span class="project-tag" data-translate="proj3-tag1">System Analysis</span>
               <span class="project-tag">UI Wireframe</span>
               <span class="project-tag">ERD & Use Case</span>
             </div>
             <h3 class="project-title" data-translate="proj3-title">Quality Control System Design — PT Estima Reka Sakti</h3>
             <p class="project-desc" data-translate="proj3-desc">
-              Analysis and design of a web-based construction quality control monitoring system at PT Estima Reka Sakti, covering business process mapping, use case diagrams, relational ERD, and UI wireframe designs.
+              Academic research at PT Estima Reka Sakti to analyze and design a web-based construction quality control monitoring system, covering business process mapping, use case diagrams, relational ERD, and UI wireframes.
             </p>
             <div class="project-links">
               <a href="./Surat Keterangan Penelitian PT Estima Reka Sakti.pdf" class="project-link-btn" download data-translate="proj3-btn">Download Research Certificate (PDF)</a>
@@ -1118,29 +1142,7 @@
           </div>
         </div>
 
-        <!-- Project 4: Abadi Airlines -->
-        <div class="project-item reveal">
-          <div class="project-visual">
-            <a href="./abadi_arilines_dashboard.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
-              <img src="./abadi_arilines_dashboard.png" alt="Abadi Airlines Laravel Dashboard">
-            </a>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag">PHP</span>
-              <span class="project-tag">Laravel</span>
-              <span class="project-tag">MySQL</span>
-              <span class="project-tag">Blade Engine</span>
-            </div>
-            <h3 class="project-title" data-translate="proj4-title">National Airline Management Application</h3>
-            <p class="project-desc" data-translate="proj4-desc">
-              An internal airline management application built with Laravel MVC and MySQL database to manage flight schedules, manifest data, and secure CRUD passenger ticket transaction modules.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/sam01149/Aplikasi_Maskapai_Nasional" class="project-link-btn" target="_blank" data-translate="proj4-btn">GitHub Repository</a>
-            </div>
-          </div>
-        </div>
+
       </div>
 
       <!-- Proyek Lainnya / More Projects Link -->
@@ -1368,6 +1370,11 @@
           "exp2-point2": "Delivered a web-based monitoring system design covering use cases, ERD, and UI wireframes.",
           "projects-tagline": "Projects Experience",
           "projects-title": "Projects I Have Built",
+          "aix-category": "Internship Project",
+          "aix-title": "AIX Metadata Catalog &amp; Data Governance Pipeline",
+          "aix-desc": "Built a rule-based Python pipeline during my Telkom Indonesia internship to catalog 26,713 SharePoint file and folder entries. Classified document metadata, audited naming conventions, and exported reviewable Excel and CSV catalogs. The baseline audit identified 22,684 non-compliant entries (84.9%).",
+          "aix-btn": "View Catalog Schema",
+          "proj3-category": "Academic Research",
           "proj1-desc": "A serverless Progressive Web App (PWA) for real-time forex analysis. Features Redis caching for rapid performance and multi-provider AI integration with automatic failover.",
           "proj1-btn": "GitHub Repository",
           "zoom-title": "Click to view full resolution (Zoom)",
@@ -1375,12 +1382,9 @@
           "proj2-desc": "Smartphone customer segmentation analysis based on the K-Means Clustering algorithm with CRISP-DM methodology. This project features a Streamlit web application to automatically predict new consumer segments. Invited as guest speaker by the Information Systems Study Program, Telkom University to present this project's methodology (June 2026).",
           "proj2-btn": "View Python Code",
           "proj3-title": "Quality Control System Design — PT Estima Reka Sakti",
-          "proj3-desc": "Analysis and design of a web-based construction quality control monitoring system at PT Estima Reka Sakti, covering business process mapping, use case diagrams, relational ERD, and UI wireframe designs.",
+          "proj3-desc": "Academic research at PT Estima Reka Sakti to analyze and design a web-based construction quality control monitoring system, covering business process mapping, use case diagrams, relational ERD, and UI wireframes.",
           "proj3-btn": "Download Research Certificate (PDF)",
           "proj3-tag1": "System Analysis",
-          "proj4-title": "National Airline Management Application",
-          "proj4-desc": "An internal airline management application built with Laravel MVC and MySQL database to manage flight schedules, manifest data, and secure CRUD passenger ticket transaction modules.",
-          "proj4-btn": "GitHub Repository",
           "more-projects-label": "Other Projects:",
           "more-projects-btn": "View All Projects on GitHub (github.com/sam01149)",
           "skills-tagline": "Skills",
@@ -1430,6 +1434,11 @@
           "exp2-point2": "Menyusun rancangan sistem monitoring berbasis web yang mencakup use case, ERD, dan UI wireframe.",
           "projects-tagline": "Pengalaman Proyek",
           "projects-title": "Proyek yang Pernah Saya Bangun",
+          "aix-category": "Proyek Magang",
+          "aix-title": "Katalog Metadata &amp; Pipeline Data Governance AIX",
+          "aix-desc": "Membangun pipeline Python berbasis aturan saat magang di Telkom Indonesia untuk mengatalogkan 26.713 entri file dan folder SharePoint. Mengklasifikasikan metadata dokumen, mengaudit konvensi penamaan, dan mengekspor katalog Excel serta CSV untuk ditinjau. Audit baseline mengidentifikasi 22.684 entri tidak sesuai (84,9%).",
+          "aix-btn": "Lihat Struktur Katalog",
+          "proj3-category": "Penelitian Akademik",
           "proj1-desc": "Aplikasi Progressive Web App (PWA) serverless untuk melakukan analisis forex secara real-time. Dilengkapi dengan caching Redis untuk performa cepat dan integrasi kecerdasan buatan (AI) multi-provider dengan sistem failover otomatis.",
           "proj1-btn": "Repositori GitHub",
           "zoom-title": "Klik untuk melihat resolusi penuh (Zoom)",
@@ -1437,12 +1446,9 @@
           "proj2-desc": "Analisis pengelompokan pelanggan smartphone berbasis algoritma K-Means Clustering dengan metodologi CRISP-DM. Proyek ini dilengkapi dengan aplikasi web Streamlit untuk memprediksi segmen konsumen baru secara otomatis. Diundang sebagai pembicara tamu oleh Program Studi Sistem Informasi Telkom University untuk mempresentasikan metodologi proyek ini (Juni 2026).",
           "proj2-btn": "Lihat Kode Python",
           "proj3-title": "Perancangan Sistem Quality Control — PT Estima Reka Sakti",
-          "proj3-desc": "Hasil analisis dan perancangan sistem monitoring kualitas konstruksi lapangan berbasis web di PT Estima Reka Sakti, mencakup pemetaan alur proses bisnis, use case diagram, ERD relasional, dan rancangan UI wireframe.",
+          "proj3-desc": "Proyek penelitian akademik di PT Estima Reka Sakti untuk menganalisis dan merancang sistem monitoring kualitas konstruksi berbasis web, mencakup pemetaan proses bisnis, use case diagram, ERD relasional, dan UI wireframe.",
           "proj3-btn": "Unduh Surat Keterangan Penelitian (PDF)",
           "proj3-tag1": "Sistem Analisis",
-          "proj4-title": "Aplikasi Manajemen Maskapai Penerbangan Nasional",
-          "proj4-desc": "Aplikasi internal maskapai penerbangan berbasis Laravel MVC dan database MySQL untuk mengelola jadwal penerbangan, data manifest, serta modul CRUD transaksi tiket penumpang secara aman.",
-          "proj4-btn": "Repositori GitHub",
           "more-projects-label": "Proyek Lainnya:",
           "more-projects-btn": "Lihat Semua Proyek di GitHub (github.com/sam01149)",
           "skills-tagline": "Keahlian",
