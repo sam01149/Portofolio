@@ -61,7 +61,7 @@ COPY = {
                 ],
             },
             {
-                "title": "Business Process Analyst & UI Designer Intern - PT Estima Reka Sakti",
+                "title": "Business Process Analysis &amp; UI Design Research - PT Estima Reka Sakti",
                 "date": "September 2024 - June 2025",
                 "meta": "South Tangerang, Indonesia",
                 "bullets": [
@@ -150,7 +150,7 @@ COPY = {
                 ],
             },
             {
-                "title": "Business Process Analyst & UI Designer Intern - PT Estima Reka Sakti",
+                "title": "Penelitian Analisis Proses Bisnis &amp; Desain UI - PT Estima Reka Sakti",
                 "date": "September 2024 - Juni 2025",
                 "meta": "Tangerang Selatan, Indonesia",
                 "bullets": [
