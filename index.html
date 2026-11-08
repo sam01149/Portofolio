@@ -382,6 +382,16 @@
       transform: translateY(-3px);
     }
 
+    .project-visual.project-gallery,
+    .project-item:hover .project-visual.project-gallery {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      transform: none;
+      overflow: visible;
+    }
+
     .project-gallery .gallery-slide[hidden],
     .project-gallery .gallery-controls[hidden] { display: none; }
 
@@ -390,7 +400,7 @@
       align-items: center;
       justify-content: center;
       aspect-ratio: 4 / 3;
-      background: #f4f5f6;
+      background: transparent;
       touch-action: pan-y pinch-zoom;
     }
 
@@ -403,7 +413,7 @@
     .project-gallery .gallery-slide a:hover img { transform: none; }
 
     .gallery-slide figcaption {
-      padding: 1rem 1.25rem 0.75rem;
+      padding: 1rem 0 0.75rem;
       min-height: 5rem;
       font-size: 0.85rem;
       color: var(--text-secondary);
@@ -414,7 +424,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1rem 1rem;
+      padding: 0;
       gap: 1rem;
     }
 

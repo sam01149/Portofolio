@@ -7,7 +7,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import BaseDocTemplate, Frame, KeepTogether, PageTemplate, PageBreak, Paragraph, Spacer, Table, TableStyle
+from reportlab.platypus import BaseDocTemplate, Frame, KeepTogether, PageTemplate, Paragraph, Spacer, Table, TableStyle
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,79 +33,60 @@ COPY = {'en': {'filename': 'CV_Samuel_Armando_Napitu_EN.pdf',
         'location': 'South Jakarta, Indonesia',
         'summary_heading': 'SUMMARY',
         'summary': 'BNSP-certified Data Scientist and Information Systems undergraduate at Telkom University '
-                   'Jakarta (GPA: 3.69/4.00). Hands-on experience in data governance, Python metadata pipelines, '
-                   'SharePoint inventory automation with Power Automate, and business intelligence using Power BI '
-                   'and Power Query.',
+                   'Jakarta (GPA: 3.69/4.00), with experience in data governance, Python pipelines, Power '
+                   'Automate, and Power BI.',
         'skills_heading': 'SKILLS',
-        'skills': [('Programming', 'Python, SQL, JavaScript, PHP, HTML/CSS'),
-                   ('Data & Machine Learning', 'Pandas, NumPy, Scikit-learn, CRISP-DM, data quality audit'),
-                   ('Business Intelligence', 'Power BI, Power Query'),
+        'skills': [('Data & Machine Learning', 'Python, SQL, Pandas, NumPy, Scikit-learn, CRISP-DM, Streamlit'),
                    ('Data Governance & Automation',
-                    'Metadata management, naming convention audit, SharePoint, Power Automate'),
-                   ('Development', 'Next.js, Laravel, Node.js, RESTful API, Streamlit'),
-                   ('Database & Tools', 'MySQL, Supabase, Redis, Git/GitHub, Vercel, Microsoft Entra')],
+                    'SharePoint, metadata management, naming audit, Power Automate'),
+                   ('Business Intelligence', 'Power BI, Power Query'),
+                   ('Development & Tools',
+                    'JavaScript, PHP, HTML/CSS, Next.js, Laravel, Node.js, REST API, MySQL, Supabase, Redis, '
+                    'Git/GitHub, Vercel, Microsoft Entra')],
         'experience_heading': 'EXPERIENCE',
         'experience': [{'title': 'Data &amp; Analytics Intern - PT Telkom Indonesia',
                         'date': 'August 2026 - October 2026',
                         'meta': 'Chapter Data Science & AI / AIX | Digital Product Division | South Jakarta, '
                                 'Indonesia',
-                        'bullets': ['Built a Python metadata pipeline for 26,713 SharePoint file and folder '
-                                    'entries, classifying document type, sensitivity, and status and auditing '
-                                    'naming conventions.',
-                                    'Developed Power Automate flows for SharePoint inventory with pagination and '
-                                    'CSV export; diagnosed Power Query refresh limitations to assess data '
-                                    'freshness.',
-                                    'Developed a Talent Dashboard portal prototype using Next.js, Microsoft Entra '
-                                    'authentication, and Power BI integration.']},
-                       {'title': 'Academic Research - Business Process Analysis &amp; UI Design',
-                        'date': 'September 2024 - June 2025',
-                        'meta': 'PT Estima Reka Sakti | Academic Project | South Tangerang, Indonesia',
-                        'bullets': ['Mapped construction quality-control processes through field research and '
-                                    'identified operational bottlenecks.',
-                                    'Designed a web-based monitoring system covering use cases, relational ERD, '
-                                    'and UI wireframes.']}],
+                        'bullets': ['Built a Python metadata pipeline for 26,713 SharePoint entries, classifying '
+                                    'document type, sensitivity, and status.',
+                                    'Developed Power Automate inventory flows with pagination and CSV export; '
+                                    'diagnosed Power Query refresh limitations.',
+                                    'Built a Talent Dashboard portal prototype using Next.js, Microsoft Entra '
+                                    'authentication, and Power BI embedding.']}],
         'projects_heading': 'PROJECTS',
         'projects': [{'title': 'AIX Data Governance &amp; Metadata Automation',
                       'date': 'August - October 2026',
                       'meta': 'Internship Project | Python | SharePoint | Power Automate',
-                      'bullets': ['Audited a 26,713-entry baseline and identified 22,684 naming violations '
-                                  '(84.9%); exported classified metadata to Excel and CSV for review.',
-                                  'Developed scheduled SharePoint inventory flows with pagination, field mapping, '
-                                  'and CSV export.']},
+                      'bullets': ['Audited a 26,713-entry baseline: identified 22,684 naming violations (84.9%); '
+                                  'produced classified Excel/CSV catalogs and SharePoint inventory flows.']},
                      {'title': 'Daun Merah - Forex Intelligence PWA',
                       'date': 'May 2026 - Present',
                       'meta': 'Personal Project | Vanilla JS | Node.js | Redis | Vercel',
-                      'bullets': ['Designed and developed a serverless Progressive Web App integrating '
-                                  'macroeconomic data, technical indicators, and market news for forex analysis.',
-                                  'Implemented Redis caching and distributed locking across data sources '
-                                  'including FRED, CFTC, Yahoo Finance, and ECB.',
-                                  'Integrated multiple LLM providers with fallback and timeout mechanisms to '
-                                  'improve service reliability.']},
+                      'bullets': ['Built a serverless forex PWA combining macroeconomic data, technical '
+                                  'indicators, and news from FRED, CFTC, Yahoo Finance, and ECB.',
+                                  'Implemented Redis caching, distributed locking, and multiple LLM providers '
+                                  'with fallback and timeout handling.']},
                      {'title': 'Machine Learning-Based Customer Segmentation',
                       'date': 'April 2026',
                       'meta': 'Certification Project | Python | Scikit-learn | Streamlit',
-                      'bullets': ['Built a customer segmentation model using the CRISP-DM workflow, including '
-                                  'preprocessing, EDA, modeling, and GridSearchCV optimization.',
-                                  'Developed a Streamlit application to automate segment predictions for new '
-                                  'customers.',
+                      'bullets': ['Built a CRISP-DM customer segmentation model with preprocessing, EDA, '
+                                  'GridSearchCV, and a Streamlit prediction app.',
                                   "Presented the methodology as an invited speaker at Telkom University's Data "
-                                  'Science Bukan Cuma Coding webinar in June 2026.']},
+                                  'Science Bukan Cuma Coding webinar (June 2026).']},
                      {'title': 'Quality Control System Design',
                       'date': 'September 2024 - June 2025',
                       'meta': 'Academic Research | PT Estima Reka Sakti | System Analysis | UI Design',
-                      'bullets': ['Translated field research into business process maps, use case diagrams, a '
-                                  'relational ERD, and monitoring system wireframes.']}],
+                      'bullets': ['Mapped construction quality-control processes and bottlenecks through field '
+                                  'research; designed monitoring use cases, relational ERD, and UI wireframes.']}],
         'certifications_heading': 'CERTIFICATIONS',
         'certifications': [('Data Scientist Certification, LSP Data / BNSP', 'April 2026'),
                            ('IBM Data Science Professional Certificate, Coursera', 'March 2026')],
         'organization_heading': 'ORGANIZATION',
-        'organization_title': 'Christian Student Fellowship, Telkom University Jakarta - Committee Chairperson, '
-                              'Easter Retreat',
+        'organization_title': 'Christian Student Fellowship, Telkom University Jakarta',
         'organization_date': 'May 2025',
-        'organization_bullets': ['Led 56 team members and managed an IDR 36 million budget for a three-day '
-                                 'program.',
-                                 'Coordinated schedules, divisions, communication, and risk management to keep '
-                                 'the program on track.'],
+        'organization_bullets': ['Chaired a three-day Easter retreat with 56 team members and an IDR 36 million '
+                                 'budget; coordinated schedules, divisions, and risk management.'],
         'education_heading': 'EDUCATION',
         'education_title': 'Telkom University Jakarta',
         'education_date': '2023 - Present',
@@ -114,81 +95,60 @@ COPY = {'en': {'filename': 'CV_Samuel_Armando_Napitu_EN.pdf',
         'location': 'Jakarta Selatan, Indonesia',
         'summary_heading': 'RINGKASAN',
         'summary': 'Data Scientist tersertifikasi BNSP dan mahasiswa S1 Sistem Informasi Telkom University '
-                   'Jakarta (IPK: 3,69/4,00). Memiliki pengalaman praktis dalam data governance, pipeline '
-                   'metadata Python, otomasi inventaris SharePoint dengan Power Automate, serta business '
-                   'intelligence menggunakan Power BI dan Power Query.',
+                   'Jakarta (IPK: 3,69/4,00), dengan pengalaman data governance, pipeline Python, Power Automate, '
+                   'dan Power BI.',
         'skills_heading': 'KEAHLIAN',
-        'skills': [('Pemrograman', 'Python, SQL, JavaScript, PHP, HTML/CSS'),
-                   ('Data & Machine Learning', 'Pandas, NumPy, Scikit-learn, CRISP-DM, audit kualitas data'),
+        'skills': [('Data & Machine Learning', 'Python, SQL, Pandas, NumPy, Scikit-learn, CRISP-DM, Streamlit'),
+                   ('Data Governance & Otomasi', 'SharePoint, metadata management, naming audit, Power Automate'),
                    ('Business Intelligence', 'Power BI, Power Query'),
-                   ('Data Governance & Otomasi',
-                    'Metadata management, audit konvensi penamaan, SharePoint, Power Automate'),
-                   ('Pengembangan', 'Next.js, Laravel, Node.js, RESTful API, Streamlit'),
-                   ('Database & Tools', 'MySQL, Supabase, Redis, Git/GitHub, Vercel, Microsoft Entra')],
+                   ('Pengembangan & Tools',
+                    'JavaScript, PHP, HTML/CSS, Next.js, Laravel, Node.js, REST API, MySQL, Supabase, Redis, '
+                    'Git/GitHub, Vercel, Microsoft Entra')],
         'experience_heading': 'PENGALAMAN',
         'experience': [{'title': 'Data &amp; Analytics Intern - PT Telkom Indonesia',
                         'date': 'Agustus 2026 - Oktober 2026',
                         'meta': 'Chapter Data Science & AI / AIX | Divisi Digital Product | Jakarta Selatan, '
                                 'Indonesia',
-                        'bullets': ['Membangun pipeline metadata Python untuk 26.713 entri file dan folder '
-                                    'SharePoint, mengklasifikasikan jenis dokumen, sensitivitas, dan status serta '
-                                    'mengaudit konvensi penamaan.',
-                                    'Mengembangkan flow Power Automate untuk inventaris SharePoint dengan '
-                                    'pagination dan ekspor CSV; mendiagnosis keterbatasan refresh Power Query '
-                                    'untuk memeriksa keterkinian data.',
-                                    'Mengembangkan prototipe portal Talent Dashboard menggunakan Next.js, '
-                                    'autentikasi Microsoft Entra, dan integrasi Power BI.']},
-                       {'title': 'Penelitian Akademik - Analisis Proses Bisnis &amp; Desain UI',
-                        'date': 'September 2024 - Juni 2025',
-                        'meta': 'PT Estima Reka Sakti | Proyek Akademik | Tangerang Selatan, Indonesia',
-                        'bullets': ['Memetakan proses quality control konstruksi melalui riset lapangan dan '
-                                    'mengidentifikasi hambatan operasional.',
-                                    'Merancang sistem monitoring berbasis web yang mencakup use case, ERD '
-                                    'relasional, dan UI wireframe.']}],
+                        'bullets': ['Membangun pipeline metadata Python untuk 26.713 entri SharePoint, '
+                                    'mengklasifikasikan jenis dokumen, sensitivitas, dan status.',
+                                    'Mengembangkan flow inventaris Power Automate dengan pagination dan ekspor '
+                                    'CSV; mendiagnosis keterbatasan refresh Power Query.',
+                                    'Membangun prototipe portal Talent Dashboard dengan Next.js, autentikasi '
+                                    'Microsoft Entra, dan embedding Power BI.']}],
         'projects_heading': 'PROYEK',
         'projects': [{'title': 'Data Governance &amp; Otomasi Metadata AIX',
                       'date': 'Agustus - Oktober 2026',
                       'meta': 'Proyek Magang | Python | SharePoint | Power Automate',
-                      'bullets': ['Mengaudit baseline 26.713 entri dan mengidentifikasi 22.684 entri tidak sesuai '
-                                  'penamaan (84,9%); mengekspor metadata terklasifikasi ke Excel dan CSV untuk '
-                                  'ditinjau.',
-                                  'Mengembangkan flow inventaris SharePoint terjadwal dengan pagination, pemetaan '
-                                  'kolom, dan ekspor CSV.']},
+                      'bullets': ['Mengaudit baseline 26.713 entri: menemukan 22.684 entri tidak sesuai penamaan '
+                                  '(84,9%); menghasilkan katalog Excel/CSV terklasifikasi dan flow inventaris '
+                                  'SharePoint.']},
                      {'title': 'Daun Merah - Forex Intelligence PWA',
                       'date': 'Mei 2026 - Sekarang',
                       'meta': 'Proyek Pribadi | Vanilla JS | Node.js | Redis | Vercel',
-                      'bullets': ['Merancang dan mengembangkan Progressive Web App serverless yang '
-                                  'mengintegrasikan data makroekonomi, indikator teknikal, dan berita pasar untuk '
-                                  'analisis forex.',
-                                  'Mengimplementasikan Redis caching dan distributed locking untuk sumber data '
-                                  'termasuk FRED, CFTC, Yahoo Finance, dan ECB.',
-                                  'Mengintegrasikan beberapa penyedia LLM dengan mekanisme fallback dan timeout '
-                                  'untuk meningkatkan keandalan layanan.']},
+                      'bullets': ['Membangun PWA forex serverless yang menggabungkan data makroekonomi, indikator '
+                                  'teknikal, dan berita dari FRED, CFTC, Yahoo Finance, dan ECB.',
+                                  'Menerapkan Redis caching, distributed locking, dan beberapa penyedia LLM '
+                                  'dengan penanganan fallback serta timeout.']},
                      {'title': 'Segmentasi Pelanggan Berbasis Machine Learning',
                       'date': 'April 2026',
                       'meta': 'Proyek Sertifikasi | Python | Scikit-learn | Streamlit',
-                      'bullets': ['Membangun model segmentasi pelanggan menggunakan alur CRISP-DM, mencakup '
-                                  'praproses, EDA, pemodelan, dan optimasi GridSearchCV.',
-                                  'Mengembangkan aplikasi Streamlit untuk mengotomatiskan prediksi segmen '
-                                  'pelanggan baru.',
-                                  'Mempresentasikan metodologi sebagai pembicara undangan pada webinar Data '
-                                  'Science Bukan Cuma Coding Telkom University pada Juni 2026.']},
+                      'bullets': ['Membangun model segmentasi pelanggan dengan CRISP-DM, praproses, EDA, '
+                                  'GridSearchCV, dan aplikasi prediksi Streamlit.',
+                                  'Mempresentasikan metodologi sebagai pembicara undangan webinar Data Science '
+                                  'Bukan Cuma Coding Telkom University (Juni 2026).']},
                      {'title': 'Perancangan Sistem Quality Control',
                       'date': 'September 2024 - Juni 2025',
                       'meta': 'Penelitian Akademik | PT Estima Reka Sakti | Analisis Sistem | Desain UI',
-                      'bullets': ['Menerjemahkan hasil riset lapangan menjadi pemetaan proses bisnis, use case '
-                                  'diagram, ERD relasional, dan wireframe sistem monitoring.']}],
+                      'bullets': ['Memetakan proses dan hambatan quality control konstruksi melalui riset '
+                                  'lapangan; merancang use case monitoring, ERD relasional, dan UI wireframe.']}],
         'certifications_heading': 'SERTIFIKASI',
         'certifications': [('Sertifikasi Data Scientist, LSP Data / BNSP', 'April 2026'),
                            ('IBM Data Science Professional Certificate, Coursera', 'Maret 2026')],
         'organization_heading': 'ORGANISASI',
-        'organization_title': 'Persekutuan Mahasiswa Kristen Telkom University Jakarta - Ketua Pelaksana Retreat '
-                              'Paskah',
+        'organization_title': 'Persekutuan Mahasiswa Kristen, Telkom University Jakarta',
         'organization_date': 'Mei 2025',
-        'organization_bullets': ['Memimpin 56 anggota tim dan mengelola anggaran Rp36 juta untuk program tiga '
-                                 'hari.',
-                                 'Mengoordinasikan jadwal, divisi, komunikasi, dan manajemen risiko agar program '
-                                 'berjalan sesuai rencana.'],
+        'organization_bullets': ['Menjadi ketua pelaksana Retreat Paskah tiga hari dengan 56 anggota tim dan '
+                                 'anggaran Rp36 juta; mengoordinasikan jadwal, divisi, dan manajemen risiko.'],
         'education_heading': 'PENDIDIKAN',
         'education_title': 'Telkom University Jakarta',
         'education_date': '2023 - Sekarang',
@@ -200,19 +160,19 @@ def make_styles():
     return {
         "name": ParagraphStyle("Name", parent=base["Normal"], fontName="Calibri-Bold", fontSize=20, leading=22, alignment=TA_CENTER, spaceAfter=6),
         "contact": ParagraphStyle("Contact", parent=base["Normal"], fontName="Calibri", fontSize=9, leading=10.5, alignment=TA_CENTER),
-        "section": ParagraphStyle("Section", parent=base["Normal"], fontName="Calibri-Bold", fontSize=11, leading=12, spaceBefore=12, spaceAfter=3),
-        "body": ParagraphStyle("Body", parent=base["Normal"], fontName="Calibri", fontSize=10, leading=12.4, alignment=TA_LEFT),
+        "section": ParagraphStyle("Section", parent=base["Normal"], fontName="Calibri-Bold", fontSize=11, leading=12, spaceBefore=6, spaceAfter=3),
+        "body": ParagraphStyle("Body", parent=base["Normal"], fontName="Calibri", fontSize=10, leading=11.5, alignment=TA_LEFT),
         "title": ParagraphStyle("Title", parent=base["Normal"], fontName="Calibri-Bold", fontSize=11, leading=12.5),
         "date": ParagraphStyle("Date", parent=base["Normal"], fontName="Calibri", fontSize=10, leading=12.5, alignment=TA_RIGHT),
-        "meta": ParagraphStyle("Meta", parent=base["Normal"], fontName="Calibri-Italic", fontSize=10, leading=11.5, spaceAfter=3),
-        "bullet": ParagraphStyle("Bullet", parent=base["Normal"], fontName="Calibri", fontSize=10, leading=12.2, leftIndent=20, firstLineIndent=-10, bulletIndent=7, spaceAfter=1.5),
+        "meta": ParagraphStyle("Meta", parent=base["Normal"], fontName="Calibri-Italic", fontSize=10, leading=10.5, spaceAfter=2),
+        "bullet": ParagraphStyle("Bullet", parent=base["Normal"], fontName="Calibri", fontSize=10, leading=11.5, leftIndent=20, firstLineIndent=-10, bulletIndent=7, spaceAfter=1.5),
     }
 
 
 def section_heading(text, styles, width):
     line = Table([[""]], colWidths=[width], rowHeights=[0.7])
     line.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), BLUE)]))
-    return KeepTogether([Paragraph(text, styles["section"]), line, Spacer(1, 5)])
+    return KeepTogether([Paragraph(text, styles["section"]), line, Spacer(1, 3)])
 
 
 def dated_title(title, date, styles, width):
@@ -246,8 +206,8 @@ def build(language):
     output = ROOT / data["filename"]
     doc = BaseDocTemplate(
         str(output), pagesize=LETTER,
-        leftMargin=0.69 * inch, rightMargin=0.69 * inch,
-        topMargin=0.62 * inch, bottomMargin=0.58 * inch,
+        leftMargin=0.55 * inch, rightMargin=0.55 * inch,
+        topMargin=0.5 * inch, bottomMargin=0.5 * inch,
         title=f"Samuel Armando Napitu - CV ({language.upper()})",
         author="Samuel Armando Napitu",
     )
@@ -275,15 +235,14 @@ def build(language):
     for item in data["experience"]:
         block = [dated_title(item["title"], item["date"], styles, doc.width), Paragraph(item["meta"], styles["meta"])]
         block.extend(bullet(text, styles) for text in item["bullets"])
-        block.append(Spacer(1, 4))
+        block.append(Spacer(1, 2))
         story.append(KeepTogether(block))
 
-    story.append(PageBreak())
     story.append(section_heading(data["projects_heading"], styles, doc.width))
     for item in data["projects"]:
         block = [dated_title(item["title"], item["date"], styles, doc.width), Paragraph(item["meta"], styles["meta"])]
         block.extend(bullet(text, styles) for text in item["bullets"])
-        block.append(Spacer(1, 4))
+        block.append(Spacer(1, 2))
         story.append(KeepTogether(block))
 
     story.append(section_heading(data["certifications_heading"], styles, doc.width))
