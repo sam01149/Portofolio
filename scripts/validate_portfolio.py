@@ -19,12 +19,14 @@ class PortfolioParser(HTMLParser):
         values = dict(attrs)
         if "id" in values:
             self.ids.append(values["id"])
-        if "href" in values:
-            self.hrefs.append(values["href"])
+        for attribute in ("href", "src"):
+            if attribute in values:
+                self.hrefs.append(values[attribute])
         if "data-translate" in values:
             self.translation_keys.append(values["data-translate"])
-        if "data-translate-title" in values:
-            self.translation_keys.append(values["data-translate-title"])
+        for attribute in ("data-translate-title", "data-translate-aria-label"):
+            if attribute in values:
+                self.translation_keys.append(values[attribute])
 
 
 def fail(messages):

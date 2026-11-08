@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samuel Armando Napitu | Data Scientist & Data Governance Portfolio</title>
-  <meta name="description" content="Portfolio of Samuel Armando Napitu, a BNSP-certified Data Scientist with experience in data governance, data pipelines, business intelligence, and application development.">
+  <meta name="description" content="Portfolio of Samuel Armando Napitu, a BNSP-certified Data Scientist with experience in data governance, Power Automate, data pipelines, and business intelligence.">
 
   <!-- Embedded Stylesheet -->
   <style>
@@ -381,6 +381,59 @@
       box-shadow: var(--accent-rust-glow);
       transform: translateY(-3px);
     }
+
+    .project-gallery .gallery-slide[hidden],
+    .project-gallery .gallery-controls[hidden] { display: none; }
+
+    .project-gallery .gallery-slide a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 4 / 3;
+      background: #f4f5f6;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    .project-gallery .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .project-gallery .gallery-slide a:hover img { transform: none; }
+
+    .gallery-slide figcaption {
+      padding: 1rem 1.25rem 0.75rem;
+      min-height: 5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem 1rem;
+      gap: 1rem;
+    }
+
+    .gallery-arrow {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .gallery-arrow:hover { border-color: var(--accent-rust); color: var(--accent-rust); }
+    .gallery-arrow:focus-visible { outline: 2px solid var(--accent-rust); outline-offset: 3px; }
+    .gallery-position { font-size: 0.85rem; font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+    .gallery-detail { text-align: center; }
+    .gallery-fullsize { font-size: 0.75rem; color: var(--text-secondary); text-underline-offset: 3px; }
 
     .project-info {
       display: flex;
@@ -906,6 +959,7 @@
       }
     }
   </style>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
 
@@ -987,9 +1041,7 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <h1 class="hero-title"><br><span>Samuel Armando Napitu</span></h1>
-        <p class="hero-desc" data-translate="hero-desc">
-          BNSP-certified Data Scientist with hands-on experience in data governance, metadata management, data pipeline development, and business intelligence.
-        </p>
+        <p class="hero-desc" data-translate="hero-desc">BNSP-certified Data Scientist with hands-on experience in data governance, metadata management, workflow automation with Power Automate, and business intelligence.</p>
         <p class="hero-desc" style="margin-top: -1.5rem; font-style: italic; font-size: 0.95rem;" data-translate="hero-subdesc">
           Information Systems undergraduate at Telkom University with internship experience at Telkom Indonesia's Digital Product Division.
         </p>
@@ -1016,10 +1068,10 @@
           <div class="experience-period" data-translate="exp1-period">August - October 2026</div>
           <div>
             <h3 class="experience-role" data-translate="exp1-role">Data &amp; Analytics Intern</h3>
-            <p class="experience-company" data-translate="exp1-company">PT Telkom Indonesia - Chapter AI & Experience, Digital Product Division</p>
+            <p class="experience-company" data-translate="exp1-company">PT Telkom Indonesia - Chapter Data Science &amp; AI / AIX, Digital Product Division</p>
             <ul class="experience-points">
-              <li data-translate="exp1-point1">Built a metadata catalog pipeline for 26,713 SharePoint repository entries.</li>
-              <li data-translate="exp1-point2">Audited metadata quality and naming convention compliance, while supporting inventory automation with Power Automate and Power Query.</li>
+              <li data-translate="exp1-point1">Built a Python metadata pipeline for 26,713 SharePoint file and folder entries, classifying document type, sensitivity, and status and auditing naming conventions.</li>
+              <li data-translate="exp1-point2">Developed Power Automate flows for SharePoint inventory with pagination and CSV export; diagnosed Power Query refresh limitations to assess data freshness.</li>
               <li data-translate="exp1-point3">Developed a Talent Dashboard portal prototype with Microsoft Entra authentication and Power BI integration.</li>
             </ul>
           </div>
@@ -1028,7 +1080,7 @@
         <article class="experience-entry reveal">
           <div class="experience-period" data-translate="exp2-period">September 2024 - June 2025</div>
           <div>
-            <h3 class="experience-role" data-translate="exp2-role">Business Process Analysis &amp; UI Design Research</h3>
+            <h3 class="experience-role" data-translate="exp2-role">Academic Research - Business Process Analysis &amp; UI Design</h3>
             <p class="experience-company">PT Estima Reka Sakti</p>
             <ul class="experience-points">
               <li data-translate="exp2-point1">Mapped construction quality-control processes and identified operational bottlenecks through field research.</li>
@@ -1043,27 +1095,53 @@
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
-      <span class="section-tagline" data-translate="projects-tagline">Projects Experience</span>
+      <span class="section-tagline" data-translate="projects-tagline">Selected Projects</span>
       <br>
-      <h2 class="section-title" data-translate="projects-title">Projects I Have Built</h2>
+      <h2 class="section-title" data-translate="projects-title">Selected Projects &amp; Research</h2>
 
       <div class="projects-list">
         <!-- AIX: Internship project -->
         <div class="project-item reveal">
-          <div class="project-visual">
-            <a href="./aix-naming-audit.png" target="_blank" rel="noopener" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
-              <img src="./aix-naming-audit.png" alt="AIX naming convention audit: 26,713 entries, 22,684 non-compliant and 4,029 compliant" width="1800" height="850" loading="lazy" decoding="async">
-            </a>
+          <div class="project-visual project-gallery" role="region" aria-roledescription="carousel" aria-label="AIX project documentation" data-translate-aria-label="gallery-label">
+            <div class="gallery-viewport">
+              <figure class="gallery-slide" role="group" aria-label="1 / 3">
+                <a href="./aix-naming-audit.png" target="_blank" rel="noopener" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+                  <img src="./aix-naming-audit.png" alt="AIX naming audit: 26,713 entries; 22,684 non-compliant and 4,029 compliant" width="1800" height="850" loading="lazy" decoding="async">
+                </a>
+                <figcaption data-translate="gallery-audit">Naming convention audit - 26,713 file and folder entries.</figcaption>
+              </figure>
+              <figure class="gallery-slide" role="group" aria-label="2 / 3" hidden>
+                <a href="./aix-catalog-schema.png" target="_blank" rel="noopener" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+                  <img src="./aix-catalog-schema.png" alt="Python metadata catalog column mapping" width="1800" height="1116" loading="lazy" decoding="async">
+                </a>
+                <figcaption data-translate="gallery-schema">Catalog schema - document type, sensitivity, ownership, and status.</figcaption>
+              </figure>
+              <figure class="gallery-slide" role="group" aria-label="3 / 3" hidden>
+                <a href="./aix-power-automate.jpeg" target="_blank" rel="noopener" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+                  <img src="./aix-power-automate.jpeg" alt="Power Automate flow: recurrence, SharePoint request, pagination, and CSV export" width="378" height="830" loading="lazy" decoding="async">
+                </a>
+                <figcaption data-translate="gallery-flow">Power Automate - scheduled SharePoint inventory, pagination, and CSV export.</figcaption>
+              </figure>
+            </div>
+            <div class="gallery-controls" hidden>
+              <button type="button" class="gallery-arrow" data-gallery-prev aria-label="Previous documentation" data-translate-aria-label="gallery-prev"><span aria-hidden="true">&#8592;</span></button>
+              <div class="gallery-detail">
+                <span class="gallery-position" role="status" aria-live="polite" aria-atomic="true">1 / 3</span>
+                <a class="gallery-fullsize" data-gallery-open href="./aix-naming-audit.png" target="_blank" rel="noopener" data-translate="gallery-open">Open full size</a>
+              </div>
+              <button type="button" class="gallery-arrow" data-gallery-next aria-label="Next documentation" data-translate-aria-label="gallery-next"><span aria-hidden="true">&#8594;</span></button>
+            </div>
           </div>
           <div class="project-info">
             <div class="project-tags">
               <span class="project-tag" data-translate="aix-category">Internship Project</span>
               <span class="project-tag">Python</span>
               <span class="project-tag">SharePoint</span>
+              <span class="project-tag">Power Automate</span>
               <span class="project-tag">Data Governance</span>
             </div>
-            <h3 class="project-title" data-translate="aix-title">AIX Metadata Catalog &amp; Data Governance Pipeline</h3>
-            <p class="project-desc" data-translate="aix-desc">Built a rule-based Python pipeline during my Telkom Indonesia internship to catalog 26,713 SharePoint file and folder entries. Classified document metadata, audited naming conventions, and exported reviewable Excel and CSV catalogs. The baseline audit identified 22,684 non-compliant entries (84.9%).</p>
+            <h3 class="project-title" data-translate="aix-title">AIX Data Governance &amp; Metadata Automation</h3>
+            <p class="project-desc" data-translate="aix-desc">Built a rule-based Python catalog for 26,713 SharePoint entries, classifying metadata and identifying 22,684 naming violations (84.9%) in the baseline audit. Developed Power Automate inventory flows with pagination and CSV export, and investigated Power Query refresh limitations.</p>
             <div class="project-links">
               <a href="./aix-catalog-schema.png" class="project-link-btn" target="_blank" rel="noopener" data-translate="aix-btn">View Catalog Schema</a>
             </div>
@@ -1073,12 +1151,13 @@
         <!-- Project 1: Daun Merah -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./daun_merah_dashboard.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+            <a href="./daun_merah_dashboard.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title" rel="noopener">
               <img src="./daun_merah_dashboard.png" alt="Daun Merah Dashboard PWA">
             </a>
           </div>
           <div class="project-info">
             <div class="project-tags">
+              <span class="project-tag" data-translate="proj1-category">Personal Project</span>
               <span class="project-tag">Vanilla JS</span>
               <span class="project-tag">Node.js</span>
               <span class="project-tag">Redis</span>
@@ -1089,7 +1168,7 @@
               A serverless Progressive Web App (PWA) for real-time forex analysis. Features Redis caching for rapid performance and multi-provider AI integration with automatic failover.
             </p>
             <div class="project-links">
-              <a href="https://github.com/sam01149/Daun_Merah_Terminal" class="project-link-btn" target="_blank" data-translate="proj1-btn">GitHub Repository</a>
+              <a href="https://github.com/sam01149/Daun_Merah_Terminal" class="project-link-btn" target="_blank" data-translate="proj1-btn" rel="noopener">GitHub Repository</a>
             </div>
           </div>
         </div>
@@ -1097,12 +1176,13 @@
         <!-- Project 2: Customer Segmentation -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./smartphone_plot_1.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+            <a href="./smartphone_plot_1.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title" rel="noopener">
               <img src="./smartphone_plot_1.png" alt="Smartphone Customer Segmentation Chart">
             </a>
           </div>
           <div class="project-info">
             <div class="project-tags">
+              <span class="project-tag" data-translate="proj2-category">Certification Project</span>
               <span class="project-tag">Python</span>
               <span class="project-tag">Scikit-learn</span>
               <span class="project-tag">Pandas</span>
@@ -1113,7 +1193,7 @@
               Smartphone customer segmentation analysis based on the K-Means Clustering algorithm with CRISP-DM methodology. This project features a Streamlit web application to automatically predict new consumer segments. Invited as guest speaker by the Information Systems Study Program, Telkom University to present this project's methodology (June 2026).
             </p>
             <div class="project-links">
-              <a href="https://github.com/sam01149/studikasus_webinar" class="project-link-btn" target="_blank" data-translate="proj2-btn">View Python Code</a>
+              <a href="https://github.com/sam01149/studikasus_webinar" class="project-link-btn" target="_blank" data-translate="proj2-btn" rel="noopener">View Python Code</a>
             </div>
           </div>
         </div>
@@ -1121,7 +1201,7 @@
         <!-- Project 3: QC PT Estima -->
         <div class="project-item reveal">
           <div class="project-visual">
-            <a href="./dashboard_quality_control.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title">
+            <a href="./dashboard_quality_control.png" target="_blank" title="Click to view full resolution (Zoom)" data-translate-title="zoom-title" rel="noopener">
               <img src="./dashboard_quality_control.png" alt="Dashboard Quality Control PT Estima">
             </a>
           </div>
@@ -1148,7 +1228,7 @@
       <!-- Proyek Lainnya / More Projects Link -->
       <div class="more-projects-box reveal" style="margin-top: 2rem; text-align: center; padding: 2rem 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: var(--card-shadow);">
         <h4 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-primary);" data-translate="more-projects-label">Proyek Lainnya:</h4>
-        <a href="https://github.com/sam01149" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none;" data-translate="more-projects-btn">
+        <a href="https://github.com/sam01149" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none;" data-translate="more-projects-btn" rel="noopener">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
@@ -1237,7 +1317,7 @@
 
         <div class="credential-item">
           <div class="credential-meta" data-translate="cert1-date">March 2026</div>
-          <h3 class="credential-title">Data Science Professional Certificate</h3>
+          <h3 class="credential-title">IBM Data Science Professional Certificate</h3>
           <div class="credential-subtitle">IBM via Coursera</div>
         </div>
 
@@ -1263,15 +1343,15 @@
       <p class="contact-text" data-translate="contact-text">You can reach me through:</p>
 
       <div class="contact-links">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samuelarmando93@gmail.com" class="contact-link" target="_blank">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samuelarmando93@gmail.com" class="contact-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           samuelarmando93@gmail.com
         </a>
-        <a href="https://www.linkedin.com/in/samuel-armando-4149a4247/" target="_blank" class="contact-link">
+        <a href="https://www.linkedin.com/in/samuel-armando-4149a4247/" target="_blank" class="contact-link" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           LinkedIn
         </a>
-        <a href="https://github.com/sam01149" target="_blank" class="contact-link">
+        <a href="https://github.com/sam01149" target="_blank" class="contact-link" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
           github.com/sam01149
         </a>
@@ -1343,37 +1423,88 @@
         });
       });
 
+      // Manual documentation galleries: buttons, keyboard, and touch gestures.
+      document.querySelectorAll('.project-gallery').forEach(gallery => {
+        const slides = Array.from(gallery.querySelectorAll('.gallery-slide'));
+        const controls = gallery.querySelector('.gallery-controls');
+        const position = gallery.querySelector('.gallery-position');
+        const viewport = gallery.querySelector('.gallery-viewport');
+        if (slides.length < 2) return;
+        let current = 0;
+        const show = index => {
+          current = (index + slides.length) % slides.length;
+          slides.forEach((slide, i) => { slide.hidden = i !== current; });
+          position.textContent = `${current + 1} / ${slides.length}`;
+          gallery.querySelector('[data-gallery-open]').setAttribute('href', slides[current].querySelector('a').getAttribute('href'));
+        };
+        controls.hidden = false;
+        gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => show(current - 1));
+        gallery.querySelector('[data-gallery-next]').addEventListener('click', () => show(current + 1));
+        gallery.addEventListener('keydown', event => {
+          if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            show(current + (event.key === 'ArrowLeft' ? -1 : 1));
+            if (event.target.closest('.gallery-slide')) {
+              slides[current].querySelector('a').focus({ preventScroll: true });
+            }
+          }
+        });
+        let touchStart = null;
+        let suppressClickUntil = 0;
+        viewport.addEventListener('touchstart', event => {
+          touchStart = event.touches.length === 1
+            ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+        }, { passive: true });
+        viewport.addEventListener('touchend', event => {
+          if (!touchStart || !event.changedTouches.length) return;
+          const dx = event.changedTouches[0].clientX - touchStart.x;
+          const dy = event.changedTouches[0].clientY - touchStart.y;
+          touchStart = null;
+          if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+            show(current + (dx < 0 ? 1 : -1));
+            suppressClickUntil = Date.now() + 500;
+          }
+        }, { passive: true });
+        viewport.addEventListener('touchcancel', () => { touchStart = null; });
+        viewport.addEventListener('click', event => {
+          if (Date.now() < suppressClickUntil) event.preventDefault();
+        }, true);
+        show(0);
+      });
+
       // 4. Translation & Language Selector Logic
       const translations = {
         en: {
+          "gallery-open": "Open full size",
           "doc-title": "Samuel Armando Napitu | Data Scientist & Data Governance Portfolio",
-          "meta-desc": "Portfolio of Samuel Armando Napitu, a BNSP-certified Data Scientist with experience in data governance, data pipelines, business intelligence, and application development.",
+          "meta-desc": "Portfolio of Samuel Armando Napitu, a BNSP-certified Data Scientist with experience in data governance, Power Automate, data pipelines, and business intelligence.",
           "nav-home": "Home",
           "nav-experience": "Experience",
           "nav-projects": "Projects",
           "nav-skills": "Skills",
           "nav-contact": "Contact",
-          "hero-desc": "BNSP-certified Data Scientist with hands-on experience in data governance, metadata management, data pipeline development, and business intelligence.",
+          "hero-desc": "BNSP-certified Data Scientist with hands-on experience in data governance, metadata management, workflow automation with Power Automate, and business intelligence.",
           "hero-subdesc": "Information Systems undergraduate at Telkom University with internship experience at Telkom Indonesia's Digital Product Division.",
           "hero-btn-projects": "View My Projects",
           "hero-btn-cv": "Download CV (PDF)",
           "experience-title": "Experience",
           "exp1-period": "August - October 2026",
           "exp1-role": "Data &amp; Analytics Intern",
-          "exp1-company": "PT Telkom Indonesia - Chapter AI & Experience, Digital Product Division",
-          "exp1-point1": "Built a metadata catalog pipeline for 26,713 SharePoint repository entries.",
-          "exp1-point2": "Audited metadata quality and naming convention compliance, while supporting inventory automation with Power Automate and Power Query.",
+          "exp1-company": "PT Telkom Indonesia - Chapter Data Science &amp; AI / AIX, Digital Product Division",
+          "exp1-point1": "Built a Python metadata pipeline for 26,713 SharePoint file and folder entries, classifying document type, sensitivity, and status and auditing naming conventions.",
+          "exp1-point2": "Developed Power Automate flows for SharePoint inventory with pagination and CSV export; diagnosed Power Query refresh limitations to assess data freshness.",
           "exp1-point3": "Developed a Talent Dashboard portal prototype with Microsoft Entra authentication and Power BI integration.",
           "exp2-period": "September 2024 - June 2025",
-          "exp2-role": "Business Process Analysis &amp; UI Design Research",
+          "exp2-role": "Academic Research - Business Process Analysis &amp; UI Design",
           "exp2-point1": "Mapped construction quality-control processes and identified operational bottlenecks through field research.",
           "exp2-point2": "Delivered a web-based monitoring system design covering use cases, ERD, and UI wireframes.",
-          "projects-tagline": "Projects Experience",
-          "projects-title": "Projects I Have Built",
+          "projects-tagline": "Selected Projects",
+          "projects-title": "Selected Projects &amp; Research",
           "aix-category": "Internship Project",
-          "aix-title": "AIX Metadata Catalog &amp; Data Governance Pipeline",
-          "aix-desc": "Built a rule-based Python pipeline during my Telkom Indonesia internship to catalog 26,713 SharePoint file and folder entries. Classified document metadata, audited naming conventions, and exported reviewable Excel and CSV catalogs. The baseline audit identified 22,684 non-compliant entries (84.9%).",
-          "aix-btn": "View Catalog Schema",
+          "aix-title": "AIX Data Governance &amp; Metadata Automation",
+          "aix-desc": "Built a rule-based Python catalog for 26,713 SharePoint entries, classifying metadata and identifying 22,684 naming violations (84.9%) in the baseline audit. Developed Power Automate inventory flows with pagination and CSV export, and investigated Power Query refresh limitations.",
+          "aix-btn": "Open Catalog Schema",
           "proj3-category": "Academic Research",
           "proj1-desc": "A serverless Progressive Web App (PWA) for real-time forex analysis. Features Redis caching for rapid performance and multi-provider AI integration with automatic failover.",
           "proj1-btn": "GitHub Repository",
@@ -1407,37 +1538,46 @@
           "org1-title": "Committee Chairperson, Easter Retreat",
           "org1-sub": "Christian Student Fellowship, Telkom University Jakarta — led a team of 56 with an IDR 36 million budget",
           "contact-title": "Contact <span>Me</span>",
-          "contact-text": "You can reach me through:"
+          "contact-text": "You can reach me through:",
+          "gallery-label": "AIX project documentation",
+          "gallery-prev": "Previous documentation",
+          "gallery-next": "Next documentation",
+          "gallery-audit": "Naming convention audit - 26,713 file and folder entries.",
+          "gallery-schema": "Catalog schema - document type, sensitivity, ownership, and status.",
+          "gallery-flow": "Power Automate - scheduled SharePoint inventory, pagination, and CSV export.",
+          "proj1-category": "Personal Project",
+          "proj2-category": "Certification Project"
         },
         id: {
+          "gallery-open": "Buka ukuran penuh",
           "doc-title": "Samuel Armando Napitu | Portofolio Data Scientist & Data Governance",
-          "meta-desc": "Portofolio Samuel Armando Napitu, Data Scientist tersertifikasi BNSP dengan pengalaman dalam data governance, data pipeline, business intelligence, dan pengembangan aplikasi.",
+          "meta-desc": "Portofolio Samuel Armando Napitu, Data Scientist tersertifikasi BNSP dengan pengalaman data governance, Power Automate, data pipeline, dan business intelligence.",
           "nav-home": "Beranda",
           "nav-experience": "Pengalaman",
           "nav-projects": "Proyek",
           "nav-skills": "Keahlian",
           "nav-contact": "Kontak",
-          "hero-desc": "Data Scientist tersertifikasi BNSP dengan pengalaman praktis dalam data governance, metadata management, pengembangan data pipeline, dan business intelligence.",
+          "hero-desc": "Data Scientist tersertifikasi BNSP dengan pengalaman praktis dalam data governance, metadata management, otomasi alur kerja dengan Power Automate, dan business intelligence.",
           "hero-subdesc": "Mahasiswa S1 Sistem Informasi Telkom University dengan pengalaman magang di Divisi Digital Product Telkom Indonesia.",
           "hero-btn-projects": "Lihat Proyek Saya",
           "hero-btn-cv": "Unduh CV (PDF)",
           "experience-title": "Pengalaman",
           "exp1-period": "Agustus - Oktober 2026",
           "exp1-role": "Data &amp; Analytics Intern",
-          "exp1-company": "PT Telkom Indonesia - Chapter AI & Experience, Divisi Digital Product",
-          "exp1-point1": "Membangun pipeline katalog metadata untuk 26.713 entri repositori SharePoint.",
-          "exp1-point2": "Mengaudit kualitas metadata dan kepatuhan konvensi penamaan serta mendukung otomatisasi inventaris menggunakan Power Automate dan Power Query.",
+          "exp1-company": "PT Telkom Indonesia - Chapter Data Science &amp; AI / AIX, Divisi Digital Product",
+          "exp1-point1": "Membangun pipeline metadata Python untuk 26.713 entri file dan folder SharePoint, mengklasifikasikan jenis dokumen, sensitivitas, dan status serta mengaudit konvensi penamaan.",
+          "exp1-point2": "Mengembangkan flow Power Automate untuk inventaris SharePoint dengan pagination dan ekspor CSV; mendiagnosis keterbatasan refresh Power Query untuk memeriksa keterkinian data.",
           "exp1-point3": "Mengembangkan prototipe portal Talent Dashboard dengan autentikasi Microsoft Entra dan integrasi Power BI.",
           "exp2-period": "September 2024 - Juni 2025",
-          "exp2-role": "Penelitian Analisis Proses Bisnis &amp; Desain UI",
+          "exp2-role": "Penelitian Akademik - Analisis Proses Bisnis &amp; Desain UI",
           "exp2-point1": "Memetakan proses quality control konstruksi dan mengidentifikasi hambatan operasional melalui riset lapangan.",
           "exp2-point2": "Menyusun rancangan sistem monitoring berbasis web yang mencakup use case, ERD, dan UI wireframe.",
-          "projects-tagline": "Pengalaman Proyek",
-          "projects-title": "Proyek yang Pernah Saya Bangun",
+          "projects-tagline": "Proyek Pilihan",
+          "projects-title": "Proyek &amp; Penelitian Pilihan",
           "aix-category": "Proyek Magang",
-          "aix-title": "Katalog Metadata &amp; Pipeline Data Governance AIX",
-          "aix-desc": "Membangun pipeline Python berbasis aturan saat magang di Telkom Indonesia untuk mengatalogkan 26.713 entri file dan folder SharePoint. Mengklasifikasikan metadata dokumen, mengaudit konvensi penamaan, dan mengekspor katalog Excel serta CSV untuk ditinjau. Audit baseline mengidentifikasi 22.684 entri tidak sesuai (84,9%).",
-          "aix-btn": "Lihat Struktur Katalog",
+          "aix-title": "Data Governance &amp; Otomasi Metadata AIX",
+          "aix-desc": "Membangun katalog Python berbasis aturan untuk 26.713 entri SharePoint, mengklasifikasikan metadata, dan menemukan 22.684 entri tidak sesuai konvensi penamaan (84,9%) pada audit baseline. Mengembangkan flow inventaris Power Automate dengan pagination dan ekspor CSV serta menelusuri keterbatasan refresh Power Query.",
+          "aix-btn": "Buka Struktur Katalog",
           "proj3-category": "Penelitian Akademik",
           "proj1-desc": "Aplikasi Progressive Web App (PWA) serverless untuk melakukan analisis forex secara real-time. Dilengkapi dengan caching Redis untuk performa cepat dan integrasi kecerdasan buatan (AI) multi-provider dengan sistem failover otomatis.",
           "proj1-btn": "Repositori GitHub",
@@ -1448,11 +1588,11 @@
           "proj3-title": "Perancangan Sistem Quality Control — PT Estima Reka Sakti",
           "proj3-desc": "Proyek penelitian akademik di PT Estima Reka Sakti untuk menganalisis dan merancang sistem monitoring kualitas konstruksi berbasis web, mencakup pemetaan proses bisnis, use case diagram, ERD relasional, dan UI wireframe.",
           "proj3-btn": "Unduh Surat Keterangan Penelitian (PDF)",
-          "proj3-tag1": "Sistem Analisis",
+          "proj3-tag1": "Analisis Sistem",
           "more-projects-label": "Proyek Lainnya:",
           "more-projects-btn": "Lihat Semua Proyek di GitHub (github.com/sam01149)",
           "skills-tagline": "Keahlian",
-          "skills-title": "Perangkat Alat & Bahasa",
+          "skills-title": "Teknologi &amp; Bahasa Pemrograman",
           "skills-group1": "Bahasa Pemrograman",
           "skills-group2": "Framework & Library",
           "skills-group-fe": "Frontend",
@@ -1462,7 +1602,7 @@
           "history-title": "Pendidikan & Sertifikasi",
           "edu-date": "2023 — Sekarang",
           "edu-title": "S1 Sistem Informasi",
-          "edu-sub": "Telkom University Jakarta (IPK: 3.69 / 4.00)",
+          "edu-sub": "Telkom University Jakarta (IPK: 3,69 / 4,00)",
           "cert1-date": "Maret 2026",
           "cert2-date": "April 2026",
           "cert2-title": "Sertifikasi Data Scientist",
@@ -1471,7 +1611,15 @@
           "org1-title": "Ketua Pelaksana, Retreat Paskah",
           "org1-sub": "Persekutuan Mahasiswa Kristen, Telkom University Jakarta — memimpin tim 56 orang dengan anggaran Rp36 juta",
           "contact-title": "Kontak <span>Saya</span>",
-          "contact-text": "Anda bisa menghubungi saya melalui:"
+          "contact-text": "Anda bisa menghubungi saya melalui:",
+          "gallery-label": "Dokumentasi proyek AIX",
+          "gallery-prev": "Dokumentasi sebelumnya",
+          "gallery-next": "Dokumentasi berikutnya",
+          "gallery-audit": "Audit konvensi penamaan - 26.713 entri file dan folder.",
+          "gallery-schema": "Struktur katalog - jenis dokumen, sensitivitas, pemilik, dan status.",
+          "gallery-flow": "Power Automate - inventaris SharePoint terjadwal, pagination, dan ekspor CSV.",
+          "proj1-category": "Proyek Pribadi",
+          "proj2-category": "Proyek Sertifikasi"
         }
       };
 
@@ -1529,6 +1677,11 @@
           if (translations[lang][key]) {
             el.setAttribute('title', translations[lang][key]);
           }
+        });
+
+        document.querySelectorAll('[data-translate-aria-label]').forEach(el => {
+          const key = el.getAttribute('data-translate-aria-label');
+          if (translations[lang][key]) el.setAttribute('aria-label', translations[lang][key]);
         });
 
         const cvBtn = document.querySelector('a[data-translate="hero-btn-cv"]');
