@@ -51,7 +51,7 @@ COPY = {
         "experience_heading": "EXPERIENCE",
         "experience": [
             {
-                "title": "Data Scientist Intern - PT Telkom Indonesia",
+                "title": "Data &amp; Analytics Intern - PT Telkom Indonesia",
                 "date": "August 2026 - October 2026",
                 "meta": "Chapter AI & Experience | Digital Product Division | South Jakarta, Indonesia",
                 "bullets": [
@@ -140,7 +140,7 @@ COPY = {
         "experience_heading": "PENGALAMAN",
         "experience": [
             {
-                "title": "Data Scientist Intern - PT Telkom Indonesia",
+                "title": "Data &amp; Analytics Intern - PT Telkom Indonesia",
                 "date": "Agustus 2026 - Oktober 2026",
                 "meta": "Chapter AI & Experience | Divisi Digital Product | Jakarta Selatan, Indonesia",
                 "bullets": [
