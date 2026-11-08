@@ -11,7 +11,7 @@ from reportlab.platypus import BaseDocTemplate, Frame, KeepTogether, PageTemplat
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BLUE = colors.HexColor("#1F4E79")
+INK = colors.black
 
 
 def register_fonts():
@@ -171,7 +171,7 @@ def make_styles():
 
 def section_heading(text, styles, width):
     line = Table([[""]], colWidths=[width], rowHeights=[0.7])
-    line.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), BLUE)]))
+    line.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), INK)]))
     return KeepTogether([Paragraph(text, styles["section"]), line, Spacer(1, 3)])
 
 
@@ -194,7 +194,7 @@ def bullet(text, styles):
 def draw_footer(canvas, doc):
     canvas.saveState()
     canvas.setFont("Calibri", 8)
-    canvas.setFillColor(colors.HexColor("#666666"))
+    canvas.setFillColor(INK)
     canvas.drawString(doc.leftMargin, 0.3 * inch, "Samuel Armando Napitu")
     canvas.drawRightString(LETTER[0] - doc.rightMargin, 0.3 * inch, str(doc.page))
     canvas.restoreState()
